@@ -145,12 +145,6 @@ int main() {
   
     
     <entry>
-      <title><![CDATA[Gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[About]]></title>
       <url>/about/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -163,8 +157,8 @@ int main() {
     </entry>
     
     <entry>
-      <title><![CDATA[Tags]]></title>
-      <url>/tags/index.html</url>
+      <title><![CDATA[Gallery]]></title>
+      <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -177,6 +171,12 @@ int main() {
     <entry>
       <title><![CDATA[Timeline]]></title>
       <url>/timeline/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
