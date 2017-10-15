@@ -39,7 +39,7 @@
     
     <title>
         
-            BZOJ1968 | 
+            NOIP2017初赛准备 | 
         
         tkandi&#39;s blog
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="tkandi">
     <meta name="description" itemprop="description" content="tkandi&#39;s blog">
-    <meta name="keywords" content=",数学">
+    <meta name="keywords" content=",选择题,问题求解">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -237,18 +237,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://tkandi.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="BZOJ1968 | tkandi&#39;s blog">
+    <meta property="og:title" content="NOIP2017初赛准备 | tkandi&#39;s blog">
     <meta property="og:image" content="http://tkandi.github.io/img/favicon.ico" />
     <meta property="og:description" content="tkandi&#39;s blog">
-    <meta property="og:article:tag" content="数学"> 
+    <meta property="og:article:tag" content="选择题"> <meta property="og:article:tag" content="问题求解"> 
 
     
-        <meta property="article:published_time" content="Mon Sep 25 2017 12:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Oct 15 2017 13:38:28 GMT+0800" />
+        <meta property="article:published_time" content="Sat Oct 14 2017 10:50:00 GMT+0800" />
+        <meta property="article:modified_time" content="Sun Oct 15 2017 13:40:14 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="BZOJ1968 | tkandi&#39;s blog">
+    <meta name="twitter:title" content="NOIP2017初赛准备 | tkandi&#39;s blog">
     <meta name="twitter:description" content="tkandi&#39;s blog">
     <meta name="twitter:image" content="http://tkandi.github.io/img/favicon.ico">
     <meta name="twitter:card" content="summary_large_image" />
@@ -256,7 +256,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://tkandi.github.io/2017/09/25/BZOJ1968/index.html" />
+        <link rel="canonical" href="http://tkandi.github.io/2017/10/14/NOIP2017初赛准备/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -268,10 +268,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://tkandi.github.io/2017/09/25/BZOJ1968/index.html",
-    "headline": "BZOJ1968",
-    "datePublished": "Mon Sep 25 2017 12:00:00 GMT+0800",
-    "dateModified": "Sun Oct 15 2017 13:38:28 GMT+0800",
+    "mainEntityOfPage": "http://tkandi.github.io/2017/10/14/NOIP2017初赛准备/index.html",
+    "headline": "NOIP2017初赛准备",
+    "datePublished": "Sat Oct 14 2017 10:50:00 GMT+0800",
+    "dateModified": "Sun Oct 15 2017 13:40:14 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tkandi",
@@ -289,7 +289,7 @@
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",数学",
+    "keywords": ",选择题,问题求解",
     "description": "tkandi&#39;s blog",
 }
 </script>
@@ -355,7 +355,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AHOI2005-COMMON-约数研究"><span class="post-toc-number">1.</span> <span class="post-toc-text">[AHOI2005]COMMON 约数研究</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> Description </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> Sample Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> Sample Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> Solution </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Standard"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> Standard </span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NOIP2007提高组初赛"><span class="post-toc-number">1.</span> <span class="post-toc-text">NOIP2007提高组初赛</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">错题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#答案"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">答案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-1"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-1"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-1"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-1"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序-1"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NOIP2008提高组初赛"><span class="post-toc-number">2.</span> <span class="post-toc-text">NOIP2008提高组初赛</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错题-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">错题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-2"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-2"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-2"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-2"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、完善程序-2"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">五、完善程序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#答案-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">答案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-3"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-3"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-3"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-3"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序-3"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NOIP2009提高组初赛"><span class="post-toc-number">3.</span> <span class="post-toc-text">NOIP2009提高组初赛</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错题-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">错题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-4"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-4"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-4"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-4"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序-4"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#答案-2"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">答案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-5"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-5"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-5"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-5"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序-5"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NOIP20提高组初赛"><span class="post-toc-number">4.</span> <span class="post-toc-text">NOIP20提高组初赛</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错题-3"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">错题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-6"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-6"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-6"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-6"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序-6"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#答案-3"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">答案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、单项选择题-7"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">一、单项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、不定项选择题-7"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">二、不定项选择题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、问题求解-7"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">三、问题求解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、阅读程序写结果-7"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">四、阅读程序写结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、完善程序-7"><span class="post-toc-number">4.2.5.</span> <span class="post-toc-text">五、完善程序</span></a></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -387,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                BZOJ1968
+                NOIP2017初赛准备
             </p>
         </div>
 
@@ -406,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>tkandi</strong>
-        <span>9月 25, 2017</span>
+        <span>10月 14, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -428,7 +428,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/09/25/BZOJ1968/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/10/14/NOIP2017初赛准备/">
     
 </ul>
 
@@ -442,7 +442,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/math/">数学</a>
+        <a class="post_tag-link" href="/tags/选择题/">选择题</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/问题求解/">问题求解</a>
     </ul>
     
 
@@ -459,7 +459,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=BZOJ1968&url=http://tkandi.github.io/2017/09/25/BZOJ1968/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=NOIP2017初赛准备&url=http://tkandi.github.io/2017/10/14/NOIP2017初赛准备/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -480,7 +480,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=BZOJ1968&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/09/25/BZOJ1968/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=NOIP2017初赛准备&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/10/14/NOIP2017初赛准备/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -499,58 +499,106 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="AHOI2005-COMMON-约数研究"><a href="#AHOI2005-COMMON-约数研究" class="headerlink" title="[AHOI2005]COMMON 约数研究"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1968" target="_blank" rel="external">[AHOI2005]COMMON 约数研究</a></h1><p><center> Time Limit: 1 Sec  Memory Limit: 64 MB</center></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><p>科学家们在 Samuel 星球上的探险得到了丰富的能源储备，这使得空间站中大型计算机 “Samuel II” 的长时间运算成为了可能。由于在去年一年的辛苦工作取得了不错的成绩，小联被允许用 “Samuel II” 进行数学研究。</p>
-<p>小联最近在研究和约数有关的问题，他统计每个正数$N$的约数的个数，并以$f(N)$来表示。例如$12$的约数有$1$、$2$、$3$、$4$、$6$、$12$。因此$f(12)=6$。下表给出了一些$f(N)$的取值：</p>
+        <h1 id="NOIP2007提高组初赛"><a href="#NOIP2007提高组初赛" class="headerlink" title="NOIP2007提高组初赛"></a>NOIP2007提高组初赛</h1><h2 id="错题"><a href="#错题" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题"><a href="#一、单项选择题" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><p>2．在关系数据库中，存放在数据库中的数据的逻辑结构以（ ）为主。<br>A. 二叉树  B. 多叉树  C. 哈希表  D. B+树  E. 二维表</p>
+<p>5．在C++语言中，表达式23|2^5的值是（ ）<br>A. 23  B. 1  C. 18  D. 32  E. 24</p>
+<h3 id="二、不定项选择题"><a href="#二、不定项选择题" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><p>16.在下列各软件中，属于NOIP 竞赛（复赛）推荐使用的语言环境有（ ）。<br>A. gcc B. g++  C. Turbo C  D. free pascal</p>
+<h3 id="三、问题求解"><a href="#三、问题求解" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><p>2．N个人在操场里围成一圈，将这N个人按顺时针方向从1到N编号，然后，从第一个人起，每隔一个人让下一个人离开操场，显然，第一轮过后，具有偶数编号的人都离开了操场。依次做下去，直到操场只剩下一个人，记这个人的编号为J(N)，例如，J(5)=3，J(10)=5，等等。则J(400)=<strong><strong><strong>__</strong></strong></strong>。<br>（提示：对 N=2^m+r进行分析，其中 0≤r&lt;2^m）。</p>
+<h3 id="四、阅读程序写结果"><a href="#四、阅读程序写结果" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><p>2.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+void fun(int *a, int *b) {
+    int *k;
+    k = a;
+    a = b;
+    b = k;
+    return;
+}
+
+int main() {
+    int a = 3, b = 6, *x = &amp;a, *y = &amp;b;
+    fun(x, y);
+    cout &lt;&lt; &quot;No.1:&quot; &lt;&lt; a &lt;&lt; &quot;,&quot; &lt;&lt; b &lt;&lt; &quot; &quot;;
+    fun(&amp;a, &amp;b);
+    cout &lt;&lt; &quot;No.2:&quot; &lt;&lt; a &lt;&lt; &quot;,&quot; &lt;&lt; b &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="五、完善程序"><a href="#五、完善程序" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-1"><a href="#一、单项选择题-1" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><ol>
+<li>$E$</li>
+</ol>
+<p>数据库有层次型数据库，关系型数据库，网状数据库。层次是树，关系是二维表，网状是链接指针。</p>
+<ol>
+<li>$A$</li>
+</ol>
+<p>|优先级比^低，所以23|2^5=23|(2^5)。</p>
+<h3 id="二、不定项选择题-1"><a href="#二、不定项选择题-1" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><ol>
+<li>$ABD$</li>
+</ol>
+<h3 id="三、问题求解-1"><a href="#三、问题求解-1" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><ol>
+<li>$289$</li>
+</ol>
+<h3 id="四、阅读程序写结果-1"><a href="#四、阅读程序写结果-1" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><ol>
+<li>$No.1:3,6 No.2:3,6$</li>
+</ol>
+<h3 id="五、完善程序-1"><a href="#五、完善程序-1" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h1 id="NOIP2008提高组初赛"><a href="#NOIP2008提高组初赛" class="headerlink" title="NOIP2008提高组初赛"></a>NOIP2008提高组初赛</h1><h2 id="错题-1"><a href="#错题-1" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题-2"><a href="#一、单项选择题-2" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><ol>
+<li><p>在以下各项中，（  ）不是操作系统软件。<br>A. Solaris  B. Linux  C. Sybase  D. Windows Vista  E. Symbian</p>
+</li>
+<li><p>TCP/IP是一组构成互联网基础的网络协议，字面上包括两组协议：传输控制协议（TCP）和网际协议（IP）。TCP/IP 协议把Internet网络系统描述成具有四个层次功能的网络模型,其中提供源节点和目的节点之间的信息传输服务，包括寻址和路由器选择等功能的是（）。<br>A. 链路层  B. 网络层  C. 传输层  D. 应用层  E. 会话层</p>
+</li>
+</ol>
+<h3 id="二、不定项选择题-2"><a href="#二、不定项选择题-2" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><p>14．Web2.0是近年来互联网的热门概念之一，其核心思想是互动与分享。下列网站中，（   ）是典型的Web2.0应用。<br>A. Sina   B. Flickr  C. Yahoo  D. Google</p>
+<ol>
+<li><p>面向对象程序设计（Object-Oriented Programming）是一种程序设计的方法论，它将对象作为程序的基本单元，将数据和程序封装在对象中，以提高软件的重用性、灵活性和扩展性。下面关于面向对象程序设计的说法中，正确的是（   ）。<br>A. 面向对象程序设计通常采用自顶向下设计方法进行设计。<br>B. 面向对象程序设计方法具有继承性（inheritance）、封装性（encapsulation）、多态性（polymorphism）等几大特点。<br>C. 支持面向对象特性的语言称为面向对象的编程语言，目前较为流行的有C++、JAVA、C#等。<br>D. 面向对象的程序设计的雏形来自于Simula语言，后来在SmallTalk语言的完善和标准化的过程中得到更多的扩展和对以前思想的重新注解。至今，SmallTalk语言仍然被视为面向对象语言的基础。</p>
+</li>
+<li><p>NOIP竞赛推荐使用的语言环境有（   ）。<br>A. Dev-C++  B. Visual C++  C. free pascal  D. Lazarus</p>
+</li>
+</ol>
+<h3 id="三、问题求解-2"><a href="#三、问题求解-2" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-2"><a href="#四、阅读程序写结果-2" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h2 id="五、完善程序-2"><a href="#五、完善程序-2" class="headerlink" title="五、完善程序"></a>五、完善程序</h2><h2 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-3"><a href="#一、单项选择题-3" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><ol>
+<li><p>$C$<br>Solaris：Sun Microsystems研发的计算机操作系统。<br>Linux：是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。<br>Sybase：美国Sybase公司研制的一种关系型数据库系统，是一种典型的UNIX或WindowsNT平台上客户机/服务器环境下的大型数据库系统。<br>Windows Vista：Microsoft Windows操作系统，Windows XP的下一个版本。<br>Symbian：Symbian系统是塞班公司为手机而设计的操作系统。</p>
+</li>
+<li><p>$B$<br>TCP/IP协议：Transmission Control Protocol/Internet Protocol的简写，中译名为传输控制协议/因特网互联协议，又名网络通讯协议，是Internet最基本的协议、Internet国际互联网络的基础，由网络层的IP协议和传输层的TCP协议组成。</p>
+</li>
+</ol>
+<h3 id="二、不定项选择题-3"><a href="#二、不定项选择题-3" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><ol>
+<li>$B$</li>
+</ol>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>$n$</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">Web 1.0</th>
+<th style="text-align:center">Web 2.0</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$f(n)$</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>4</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">DoubleClick</td>
+<td style="text-align:center">Google AdSense</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Ofoto</td>
+<td style="text-align:center">Flickr</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Akamai</td>
+<td style="text-align:center">Wikipedia</td>
+</tr>
+<tr>
+<td style="text-align:center">etc.</td>
+<td style="text-align:center">etc.</td>
+<td style="text-align:center">etc.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>现在小联希望用 “Samuel II” 来统计$f(1)$到$f(n)$的累加和$M$。</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><p>只有一行一个整数$N$（$0 &lt; N &lt; 1000000$）。</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><p>只有一行输出，为整数$M$，即$f(1)$到$f(N)$的累加和。</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title=" Sample Input "></a><strong> Sample Input </strong></h2><p>3</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title=" Sample Output "></a><strong> Sample Output </strong></h2><p>5</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><p>对于$i$，它会成为$i$,$i \times 2$,…,$i \times (n / i)$的因子，它对答案的贡献为$n / i$。</p>
-<h2 id="Standard"><a href="#Standard" class="headerlink" title=" Standard "></a><strong> Standard </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-
-using namespace std;
-
-int n, sum = 0;
-
-int main() {
-    scanf(&quot;%d&quot;, &amp;n);
-    for (int i = 1; i &lt;= n; ++i)
-        sum += n / i;
-    printf(&quot;%d\n&quot;, sum);
-    return 0;
-}
-</code></pre>
-
+<h3 id="三、问题求解-3"><a href="#三、问题求解-3" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-3"><a href="#四、阅读程序写结果-3" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-3"><a href="#五、完善程序-3" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h1 id="NOIP2009提高组初赛"><a href="#NOIP2009提高组初赛" class="headerlink" title="NOIP2009提高组初赛"></a>NOIP2009提高组初赛</h1><h2 id="错题-2"><a href="#错题-2" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题-4"><a href="#一、单项选择题-4" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-4"><a href="#二、不定项选择题-4" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-4"><a href="#三、问题求解-4" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-4"><a href="#四、阅读程序写结果-4" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-4"><a href="#五、完善程序-4" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h2 id="答案-2"><a href="#答案-2" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-5"><a href="#一、单项选择题-5" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-5"><a href="#二、不定项选择题-5" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-5"><a href="#三、问题求解-5" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-5"><a href="#四、阅读程序写结果-5" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-5"><a href="#五、完善程序-5" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><p>Templete</p>
+<h1 id="NOIP20提高组初赛"><a href="#NOIP20提高组初赛" class="headerlink" title="NOIP20提高组初赛"></a>NOIP20提高组初赛</h1><h2 id="错题-3"><a href="#错题-3" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题-6"><a href="#一、单项选择题-6" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-6"><a href="#二、不定项选择题-6" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-6"><a href="#三、问题求解-6" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-6"><a href="#四、阅读程序写结果-6" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-6"><a href="#五、完善程序-6" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h2 id="答案-3"><a href="#答案-3" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-7"><a href="#一、单项选择题-7" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-7"><a href="#二、不定项选择题-7" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-7"><a href="#三、问题求解-7" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-7"><a href="#四、阅读程序写结果-7" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-7"><a href="#五、完善程序-7" class="headerlink" title="五、完善程序"></a>五、完善程序</h3>
         
     
 
@@ -562,35 +610,11 @@ int main() {
 
                 <!-- Post Comments -->
                 
-                    
-    <div id="comment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/valine@1.1.6/dist/Valine.min.js"></script>
-<script>
-    new Valine({
-        av: AV,
-        el: '.comment',
-        verify: true,
-        app_id: "OPAhpdEChseqt8BUPJkhUVEb-gzGzoHsz",
-        app_key: "YiJQAsqhdG8vfioGWow4iXPO",
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
-    });
-</script>
-
-                
             </div>
 
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
-    
-        <a href="/2017/10/14/NOIP2017初赛准备/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
     
 
     <!-- Section Spacer -->
@@ -598,7 +622,7 @@ int main() {
 
     <!-- Next Nav -->
     
-        <a href="/2017/09/23/BZOJ2463/" id="post_nav-older" class="next-content">
+        <a href="/2017/09/25/BZOJ1968/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

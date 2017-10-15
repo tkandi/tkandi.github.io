@@ -3,6 +3,127 @@
   
     
     <entry>
+      <title><![CDATA[NOIP2017初赛准备]]></title>
+      <url>/2017/10/14/NOIP2017%E5%88%9D%E8%B5%9B%E5%87%86%E5%A4%87/</url>
+      <content type="html"><![CDATA[<h1 id="NOIP2007提高组初赛"><a href="#NOIP2007提高组初赛" class="headerlink" title="NOIP2007提高组初赛"></a>NOIP2007提高组初赛</h1><h2 id="错题"><a href="#错题" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题"><a href="#一、单项选择题" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><p>2．在关系数据库中，存放在数据库中的数据的逻辑结构以（ ）为主。<br>A. 二叉树  B. 多叉树  C. 哈希表  D. B+树  E. 二维表</p>
+<p>5．在C++语言中，表达式23|2^5的值是（ ）<br>A. 23  B. 1  C. 18  D. 32  E. 24</p>
+<h3 id="二、不定项选择题"><a href="#二、不定项选择题" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><p>16.在下列各软件中，属于NOIP 竞赛（复赛）推荐使用的语言环境有（ ）。<br>A. gcc B. g++  C. Turbo C  D. free pascal</p>
+<h3 id="三、问题求解"><a href="#三、问题求解" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><p>2．N个人在操场里围成一圈，将这N个人按顺时针方向从1到N编号，然后，从第一个人起，每隔一个人让下一个人离开操场，显然，第一轮过后，具有偶数编号的人都离开了操场。依次做下去，直到操场只剩下一个人，记这个人的编号为J(N)，例如，J(5)=3，J(10)=5，等等。则J(400)=<strong><strong><strong>__</strong></strong></strong>。<br>（提示：对 N=2^m+r进行分析，其中 0≤r&lt;2^m）。</p>
+<h3 id="四、阅读程序写结果"><a href="#四、阅读程序写结果" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><p>2.</p>
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+void fun(int *a, int *b) {
+    int *k;
+    k = a;
+    a = b;
+    b = k;
+    return;
+}
+
+int main() {
+    int a = 3, b = 6, *x = &amp;a, *y = &amp;b;
+    fun(x, y);
+    cout &lt;&lt; &quot;No.1:&quot; &lt;&lt; a &lt;&lt; &quot;,&quot; &lt;&lt; b &lt;&lt; &quot; &quot;;
+    fun(&amp;a, &amp;b);
+    cout &lt;&lt; &quot;No.2:&quot; &lt;&lt; a &lt;&lt; &quot;,&quot; &lt;&lt; b &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h3 id="五、完善程序"><a href="#五、完善程序" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-1"><a href="#一、单项选择题-1" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><ol>
+<li>$E$</li>
+</ol>
+<p>数据库有层次型数据库，关系型数据库，网状数据库。层次是树，关系是二维表，网状是链接指针。</p>
+<ol>
+<li>$A$</li>
+</ol>
+<p>|优先级比^低，所以23|2^5=23|(2^5)。</p>
+<h3 id="二、不定项选择题-1"><a href="#二、不定项选择题-1" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><ol>
+<li>$ABD$</li>
+</ol>
+<h3 id="三、问题求解-1"><a href="#三、问题求解-1" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><ol>
+<li>$289$</li>
+</ol>
+<h3 id="四、阅读程序写结果-1"><a href="#四、阅读程序写结果-1" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><ol>
+<li>$No.1:3,6 No.2:3,6$</li>
+</ol>
+<h3 id="五、完善程序-1"><a href="#五、完善程序-1" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h1 id="NOIP2008提高组初赛"><a href="#NOIP2008提高组初赛" class="headerlink" title="NOIP2008提高组初赛"></a>NOIP2008提高组初赛</h1><h2 id="错题-1"><a href="#错题-1" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题-2"><a href="#一、单项选择题-2" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><ol>
+<li><p>在以下各项中，（  ）不是操作系统软件。<br>A. Solaris  B. Linux  C. Sybase  D. Windows Vista  E. Symbian</p>
+</li>
+<li><p>TCP/IP是一组构成互联网基础的网络协议，字面上包括两组协议：传输控制协议（TCP）和网际协议（IP）。TCP/IP 协议把Internet网络系统描述成具有四个层次功能的网络模型,其中提供源节点和目的节点之间的信息传输服务，包括寻址和路由器选择等功能的是（）。<br>A. 链路层  B. 网络层  C. 传输层  D. 应用层  E. 会话层</p>
+</li>
+</ol>
+<h3 id="二、不定项选择题-2"><a href="#二、不定项选择题-2" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><p>14．Web2.0是近年来互联网的热门概念之一，其核心思想是互动与分享。下列网站中，（   ）是典型的Web2.0应用。<br>A. Sina   B. Flickr  C. Yahoo  D. Google</p>
+<ol>
+<li><p>面向对象程序设计（Object-Oriented Programming）是一种程序设计的方法论，它将对象作为程序的基本单元，将数据和程序封装在对象中，以提高软件的重用性、灵活性和扩展性。下面关于面向对象程序设计的说法中，正确的是（   ）。<br>A. 面向对象程序设计通常采用自顶向下设计方法进行设计。<br>B. 面向对象程序设计方法具有继承性（inheritance）、封装性（encapsulation）、多态性（polymorphism）等几大特点。<br>C. 支持面向对象特性的语言称为面向对象的编程语言，目前较为流行的有C++、JAVA、C#等。<br>D. 面向对象的程序设计的雏形来自于Simula语言，后来在SmallTalk语言的完善和标准化的过程中得到更多的扩展和对以前思想的重新注解。至今，SmallTalk语言仍然被视为面向对象语言的基础。</p>
+</li>
+<li><p>NOIP竞赛推荐使用的语言环境有（   ）。<br>A. Dev-C++  B. Visual C++  C. free pascal  D. Lazarus</p>
+</li>
+</ol>
+<h3 id="三、问题求解-2"><a href="#三、问题求解-2" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-2"><a href="#四、阅读程序写结果-2" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h2 id="五、完善程序-2"><a href="#五、完善程序-2" class="headerlink" title="五、完善程序"></a>五、完善程序</h2><h2 id="答案-1"><a href="#答案-1" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-3"><a href="#一、单项选择题-3" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><ol>
+<li><p>$C$<br>Solaris：Sun Microsystems研发的计算机操作系统。<br>Linux：是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。<br>Sybase：美国Sybase公司研制的一种关系型数据库系统，是一种典型的UNIX或WindowsNT平台上客户机/服务器环境下的大型数据库系统。<br>Windows Vista：Microsoft Windows操作系统，Windows XP的下一个版本。<br>Symbian：Symbian系统是塞班公司为手机而设计的操作系统。</p>
+</li>
+<li><p>$B$<br>TCP/IP协议：Transmission Control Protocol/Internet Protocol的简写，中译名为传输控制协议/因特网互联协议，又名网络通讯协议，是Internet最基本的协议、Internet国际互联网络的基础，由网络层的IP协议和传输层的TCP协议组成。</p>
+</li>
+</ol>
+<h3 id="二、不定项选择题-3"><a href="#二、不定项选择题-3" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><ol>
+<li>$B$</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Web 1.0</th>
+<th style="text-align:center">Web 2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">DoubleClick</td>
+<td style="text-align:center">Google AdSense</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Ofoto</td>
+<td style="text-align:center">Flickr</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Akamai</td>
+<td style="text-align:center">Wikipedia</td>
+</tr>
+<tr>
+<td style="text-align:center">etc.</td>
+<td style="text-align:center">etc.</td>
+<td style="text-align:center">etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="三、问题求解-3"><a href="#三、问题求解-3" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-3"><a href="#四、阅读程序写结果-3" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-3"><a href="#五、完善程序-3" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h1 id="NOIP2009提高组初赛"><a href="#NOIP2009提高组初赛" class="headerlink" title="NOIP2009提高组初赛"></a>NOIP2009提高组初赛</h1><h2 id="错题-2"><a href="#错题-2" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题-4"><a href="#一、单项选择题-4" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-4"><a href="#二、不定项选择题-4" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-4"><a href="#三、问题求解-4" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-4"><a href="#四、阅读程序写结果-4" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-4"><a href="#五、完善程序-4" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h2 id="答案-2"><a href="#答案-2" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-5"><a href="#一、单项选择题-5" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-5"><a href="#二、不定项选择题-5" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-5"><a href="#三、问题求解-5" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-5"><a href="#四、阅读程序写结果-5" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-5"><a href="#五、完善程序-5" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><p>Templete</p>
+<h1 id="NOIP20提高组初赛"><a href="#NOIP20提高组初赛" class="headerlink" title="NOIP20提高组初赛"></a>NOIP20提高组初赛</h1><h2 id="错题-3"><a href="#错题-3" class="headerlink" title="错题"></a>错题</h2><h3 id="一、单项选择题-6"><a href="#一、单项选择题-6" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-6"><a href="#二、不定项选择题-6" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-6"><a href="#三、问题求解-6" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-6"><a href="#四、阅读程序写结果-6" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-6"><a href="#五、完善程序-6" class="headerlink" title="五、完善程序"></a>五、完善程序</h3><h2 id="答案-3"><a href="#答案-3" class="headerlink" title="答案"></a>答案</h2><h3 id="一、单项选择题-7"><a href="#一、单项选择题-7" class="headerlink" title="一、单项选择题"></a>一、单项选择题</h3><h3 id="二、不定项选择题-7"><a href="#二、不定项选择题-7" class="headerlink" title="二、不定项选择题"></a>二、不定项选择题</h3><h3 id="三、问题求解-7"><a href="#三、问题求解-7" class="headerlink" title="三、问题求解"></a>三、问题求解</h3><h3 id="四、阅读程序写结果-7"><a href="#四、阅读程序写结果-7" class="headerlink" title="四、阅读程序写结果"></a>四、阅读程序写结果</h3><h3 id="五、完善程序-7"><a href="#五、完善程序-7" class="headerlink" title="五、完善程序"></a>五、完善程序</h3>]]></content>
+      
+        <categories>
+            
+            <category> NOIP初赛 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 选择题 </tag>
+            
+            <tag> 问题求解 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[BZOJ1968]]></title>
       <url>/2017/09/25/BZOJ1968/</url>
       <content type="html"><![CDATA[<h1 id="AHOI2005-COMMON-约数研究"><a href="#AHOI2005-COMMON-约数研究" class="headerlink" title="[AHOI2005]COMMON 约数研究"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1968" target="_blank" rel="external">[AHOI2005]COMMON 约数研究</a></h1><p><center> Time Limit: 1 Sec  Memory Limit: 64 MB</center></p>
