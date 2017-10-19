@@ -39,7 +39,7 @@
     
     <title>
         
-            Hello World! | 
+            最长上升子序列 | 
         
         tkandi&#39;s blog
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="tkandi">
     <meta name="description" itemprop="description" content="tkandi&#39;s blog">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",DP">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -237,18 +237,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://tkandi.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hello World! | tkandi&#39;s blog">
+    <meta property="og:title" content="最长上升子序列 | tkandi&#39;s blog">
     <meta property="og:image" content="http://tkandi.github.io/img/favicon.ico" />
     <meta property="og:description" content="tkandi&#39;s blog">
-    
+    <meta property="og:article:tag" content="DP"> 
 
     
-        <meta property="article:published_time" content="Sat Sep 23 2017 15:00:00 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Oct 15 2017 13:38:22 GMT+0800" />
+        <meta property="article:published_time" content="Mon Oct 16 2017 16:30:00 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Oct 19 2017 18:16:24 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Hello World! | tkandi&#39;s blog">
+    <meta name="twitter:title" content="最长上升子序列 | tkandi&#39;s blog">
     <meta name="twitter:description" content="tkandi&#39;s blog">
     <meta name="twitter:image" content="http://tkandi.github.io/img/favicon.ico">
     <meta name="twitter:card" content="summary_large_image" />
@@ -256,7 +256,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://tkandi.github.io/2017/09/23/Hello World!/index.html" />
+        <link rel="canonical" href="http://tkandi.github.io/2017/10/16/最长上升子序列/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -268,10 +268,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://tkandi.github.io/2017/09/23/Hello World!/index.html",
-    "headline": "Hello World!",
-    "datePublished": "Sat Sep 23 2017 15:00:00 GMT+0800",
-    "dateModified": "Sun Oct 15 2017 13:38:22 GMT+0800",
+    "mainEntityOfPage": "http://tkandi.github.io/2017/10/16/最长上升子序列/index.html",
+    "headline": "最长上升子序列",
+    "datePublished": "Mon Oct 16 2017 16:30:00 GMT+0800",
+    "dateModified": "Thu Oct 19 2017 18:16:24 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tkandi",
@@ -289,7 +289,7 @@
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": "",
+    "keywords": ",DP",
     "description": "tkandi&#39;s blog",
 }
 </script>
@@ -349,6 +349,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#合唱队形"><span class="post-toc-number">1.</span> <span class="post-toc-text">合唱队形</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 题目描述 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 输入格式 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> 输出格式 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> 输入样例 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> 输出样例 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#说明"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> 说明 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题解"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> 题解 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> 代码 </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#导弹拦截"><span class="post-toc-number">2.</span> <span class="post-toc-text">导弹拦截</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> 题目描述 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text"> 输入格式 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text"> 输出格式 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text"> 输入样例 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例-1"><span class="post-toc-number">2.5.</span> <span class="post-toc-text"> 输出样例 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#说明-1"><span class="post-toc-number">2.6.</span> <span class="post-toc-text"> 说明 </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标程"><span class="post-toc-number">2.7.</span> <span class="post-toc-text"> 标程 </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Beautiful-People"><span class="post-toc-number">3.</span> <span class="post-toc-text">Beautiful People</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"> Description </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"> Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Example"><span class="post-toc-number">3.4.</span> <span class="post-toc-text"> Example </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#people-in"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text"> people.in  </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#people-out"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text"> people.out </span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">3.5.</span> <span class="post-toc-text"> Solution </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Standrad"><span class="post-toc-number">3.6.</span> <span class="post-toc-text"> Standrad </span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Longest-Increasing-Subsequence"><span class="post-toc-number">4.</span> <span class="post-toc-text">Longest Increasing Subsequence</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"> Description </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input-1"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"> Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output-1"><span class="post-toc-number">4.3.</span> <span class="post-toc-text"> Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Examples"><span class="post-toc-number">4.4.</span> <span class="post-toc-text"> Examples </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text"> input </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#output"><span class="post-toc-number">4.4.2.</span> <span class="post-toc-text"> output </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input-1"><span class="post-toc-number">4.4.3.</span> <span class="post-toc-text"> input </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#output-1"><span class="post-toc-number">4.4.4.</span> <span class="post-toc-text"> output </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input-2"><span class="post-toc-number">4.4.5.</span> <span class="post-toc-text"> input </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#output-2"><span class="post-toc-number">4.4.6.</span> <span class="post-toc-text"> output </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input-3"><span class="post-toc-number">4.4.7.</span> <span class="post-toc-text"> input </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#output-3"><span class="post-toc-number">4.4.8.</span> <span class="post-toc-text"> output </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input-4"><span class="post-toc-number">4.4.9.</span> <span class="post-toc-text"> input </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#output-4"><span class="post-toc-number">4.4.10.</span> <span class="post-toc-text"> output </span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution-1"><span class="post-toc-number">4.5.</span> <span class="post-toc-text"> Solution </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Standrad-1"><span class="post-toc-number">4.6.</span> <span class="post-toc-text"> Standrad </span></a></li></ol></li></ol>
+    </ul>
+    
 
 
 
@@ -378,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                Hello World!
+                最长上升子序列
             </p>
         </div>
 
@@ -397,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>tkandi</strong>
-        <span>9月 23, 2017</span>
+        <span>10月 16, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -419,13 +428,22 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/09/23/Hello World!/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/10/16/最长上升子序列/">
     
 </ul>
 
     
 
     <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/DP/">DP</a>
+    </ul>
     
 
     <!-- Share -->
@@ -439,7 +457,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2017/09/23/Hello World!/" class="leancloud-views_num" data-flag-title="Hello World!">
+                <span id="/2017/10/16/最长上升子序列/" class="leancloud-views_num" data-flag-title="最长上升子序列">
      &nbsp;浏览量
 </span>
 
@@ -451,7 +469,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hello World!&url=http://tkandi.github.io/2017/09/23/Hello World!/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=最长上升子序列&url=http://tkandi.github.io/2017/10/16/最长上升子序列/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -472,7 +490,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=Hello World!&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/09/23/Hello World!/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=最长上升子序列&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/10/16/最长上升子序列/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -491,15 +509,314 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>这是一篇有关 <strong><em> OI </em></strong> 的博客。</p>
-<pre><code class="lang-cpp">#include &lt;iostream&gt;
+        <p><strong> 最长上升子序列（longest increasing subsequence） </strong>，是动态规划中一个经典的问题。<br>定义如下：对于一个序列$A_1 \cdots A_i \cdots A_n$，子序列$A_{b_1} \cdots A_{b_i} \cdots A_{b_len}$满足：$B_i \lt B_{i+1} \ (foreach \  1 \le i \lt len)$，$A_{B_i} \lt A_{B_{i+1}} \ (foreach \  1 \le i \lt len)$，且$len$最大，则子序列$A_{b_1} \cdots A_{b_i} \cdots A_{b_len}$是序列$A_1 \cdots A_i \cdots A_n$的最长上升子序列。</p>
+<ol>
+<li><p>第一种DP，$f[i]$代表$i$作为子序列的最后一个元素的最长上升子序列长度。$f[i]$转移的话可以枚举它前面的那个元素，所以有以下转移：$f[i] = max{f[j] + 1} \  (1 \le j \lt i \ \&amp; \&amp; \  a[i] \lt a[j])$。这个DP是状态一维，转移一维的，所以时间复杂度为$O(n^2)$。<br>对于这种DP，还可以用数据结构优化，平衡树或者离散+线段树（或树状数组），优化后的时间复杂度都是$O(nlog_{2}n)$。<br>关于方案的话，只要记录$pre[i]$为$i$从前面转移过来的位置。</p>
+</li>
+<li><p>第二种DP，$c[i]$代表上升子序列长度为$i$时，最后一个元素的最小值，$len$为最长上升子序列长度。考虑一个个把原序列的元素加入，对于当前的第$i$个元素，在之前的状态下找到一个最大的$j$，满足$c[j - 1] &lt; a[i] \  (1 \le j \  \&amp; \&amp; \  j \le len + 1)$，以它为最后一个元素的最长上升子序列就是以第$j$个元素为最后一个元素的最长上升子序列加上当前的第$i$个元素。因为随着上升子序列的变长，它的最后一个元素的值会越来越大，所以$c$数组是单调的，所以$j = lower \underline{} bound(c + 1, c + len + 1, a[i])$。<br>关于方案的话，$c[j - 1]$在原序列的位置就是$pre[i]$。</p>
+</li>
+</ol>
+<p>最长下降子序列，最长不上升子序列，最长下降子序列也类似可求。</p>
+<p>以下是最长上升子序列。<br>$a$数组是原序列，$n$是序列长度，$c$是辅助数组。</p>
+<pre><code class="lang-cpp">int LIS(int *a, int n, int *c) {
+    int len = 0;
+    for (int i = 1; i &lt;= n; ++i) {
+        int j = lower_bound(c + 1, c + len + 1, a[i]) - c;
+        c[j] = a[i];
+        if (len &lt; j) len = j;
+    }
+    return len;
+}
+</code></pre>
+<p><br>
+<br></p>
+<h1 id="合唱队形"><a href="#合唱队形" class="headerlink" title="合唱队形"></a><a href="https://www.luogu.org/problem/show?pid=1091" target="_blank" rel="external">合唱队形</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title=" 题目描述 "></a><strong> 题目描述 </strong></h2><blockquote>
+<p>$n$位同学站成一排，音乐老师要请其中的$(n - k)$位同学出列，使得剩下的K位同学排成合唱队形。<br>合唱队形是指这样的一种队形：设$k$位同学从左到右依次编号为$1, 2, \cdots , k$，他们的身高分别为$t_1, t_2, \cdots , t_k$， 则他们的身高满足$t_1 \lt \cdots \lt t_i \gt t_{i+1} \gt \cdots \gt t_k \  (1 \le i \le k)$。<br>你的任务是，已知所有$n$位同学的身高，计算最少需要几位同学出列，可以使得剩下的同学排成合唱队形。</p>
+</blockquote>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title=" 输入格式 "></a><strong> 输入格式 </strong></h2><blockquote>
+<p>输入第一行是一个整数$n$，表示同学的总数。第一行有$n$个整数，用空格分隔，第i个整数$t_i \  (130 \le t_i \le 230)$是第$i$位同学的身高。</p>
+</blockquote>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title=" 输出格式 "></a><strong> 输出格式 </strong></h2><blockquote>
+<p>输出包括一行，这一行只包含一个整数，就是最少需要几位同学出列。</p>
+</blockquote>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title=" 输入样例 "></a><strong> 输入样例 </strong></h2><blockquote>
+<p>8<br>186 186 150 200 160 130 197 220</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title=" 输出样例 "></a><strong> 输出样例 </strong></h2><blockquote>
+<p>4</p>
+</blockquote>
+<h2 id="说明"><a href="#说明" class="headerlink" title=" 说明 "></a><strong> 说明 </strong></h2><blockquote>
+<p>对于50％的数据，保证有$n \le 20$；<br>对于全部的数据，保证有$n \le 100$。</p>
+</blockquote>
+<h2 id="题解"><a href="#题解" class="headerlink" title=" 题解 "></a><strong> 题解 </strong></h2><blockquote>
+<p>为了让更少的同学出列，应计算出最长的合唱队形。<br>分别从前往后和从后往前做两遍最长上升子序列，算出每个同学作为最后一个元素的最长上升子序列$f[i]$和第一个元素的最长下降子序列$g[i]$，那么第$i$个同学作为中间最高的最长合唱队形的长度为$f[i] + g[i] - 1$。<br>因为本题数据范围很小，上述所以方法都可以过。<br>时间复杂度为$n^2$或$O(nlog_{2}n)$。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title=" 代码 "></a><strong> 代码 </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 
 using namespace std;
 
+const int N = 110;
+
+int n;
+int t[N], f[N], g[N];
+
 int main() {
-    puts(&quot;Hello World!&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%d&quot;, &amp;t[i]);
+    for (int i = 1; i &lt;= n; ++i) {
+        f[i] = 1;
+        for (int j = 1; j &lt; i; ++j)
+            if (t[j] &lt; t[i] &amp;&amp; f[j] &gt;= f[i]) f[i] = f[j] + 1;
+    }
+    for (int i = n; i &gt;= 1; --i) {
+        g[i] = 1;
+        for (int j = n; j &gt; i; --j)
+            if (t[i] &gt; t[j] &amp;&amp; g[j] &gt;= g[i]) g[i] = g[j] + 1;
+    }
+    int res = 0;
+    for (int i = 1; i &lt;= n; ++i)
+        if (res &lt; f[i] + g[i] - 1) res = f[i] + g[i] - 1;
+    printf(&quot;%d\n&quot;, n - res);
+    return 0;
+}
+</code></pre>
+<p><br>
+<br></p>
+<h1 id="导弹拦截"><a href="#导弹拦截" class="headerlink" title="导弹拦截"></a><a href="https://www.luogu.org/problem/show?pid=1020" target="_blank" rel="external">导弹拦截</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title=" 题目描述 "></a><strong> 题目描述 </strong></h2><blockquote>
+<p>某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。<br>输入导弹依次飞来的高度（雷达给出的高度数据是不大于$50000$的正整数），计算这套系统最多能拦截多少导弹，如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。</p>
+</blockquote>
+<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title=" 输入格式 "></a><strong> 输入格式 </strong></h2><blockquote>
+<p>一行，若干个整数（个数少于$100000$）。</p>
+</blockquote>
+<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title=" 输出格式 "></a><strong> 输出格式 </strong></h2><blockquote>
+<p>两行，每行一个整数，第一个数字表示这套系统最多能拦截多少导弹，第二个数字表示如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。</p>
+</blockquote>
+<h2 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title=" 输入样例 "></a><strong> 输入样例 </strong></h2><blockquote>
+<p>389 207 155 300 299 170 158 65</p>
+</blockquote>
+<h2 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title=" 输出样例 "></a><strong> 输出样例 </strong></h2><blockquote>
+<p>6<br>2</p>
+</blockquote>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title=" 说明 "></a><strong> 说明 </strong></h2><blockquote>
+<p>第一问直接做最长不下降子序列。<br>对于第二问，有以下贪心：对于当前的导弹，若目前所有的导弹拦截系统的高度都小于其高度，那么要新开一个导弹拦截系统，否则找到一个高度不小于它且高度最小的导弹拦截系统来拦截它。这样直接做是$O(n^2)$的，但是注意到当前所以导弹拦截系统的高度都是不下降的，每次找到一个第一个不小于它的导弹拦截系统来拦截它，这与我们的第二种DP是一样的，所以其实它就是原序列的最长上升子序列的长度。<br>时间复杂度为$O(nlog_{2}n)$。</p>
+</blockquote>
+<h2 id="标程"><a href="#标程" class="headerlink" title=" 标程 "></a><strong> 标程 </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int N = 100010;
+
+int n;
+int a[N], c[N];
+
+int main() {
+    for (n = 0; scanf(&quot;%d&quot;, &amp;a[n + 1]) == 1; ++n);
+    int len = 0;
+    for (int i = n; i; --i) {
+        int j = upper_bound(c + 1, c + len + 1, a[i]) - c;
+        c[j] = a[i];
+        if (len &lt; j) len = j;
+    }
+    printf(&quot;%d\n&quot;, len);
+    len = 0;
+    for (int i = 1; i &lt;= n; ++i) {
+        int j = lower_bound(c + 1, c + len + 1, a[i]) - c;
+        c[j] = a[i];
+        if (len &lt; j) len = j;
+    }
+    printf(&quot;%d\n&quot;, len);
+    return 0;
+}
+</code></pre>
+<p><br>
+<br></p>
+<h1 id="Beautiful-People"><a href="#Beautiful-People" class="headerlink" title="Beautiful People"></a><a href="http://codeforces.com/gym/100199/problem/G" target="_blank" rel="external">Beautiful People</a></h1><p><center> Input file: people.in</center></p>
+<p><center> Output file: people.out</center></p>
+<p><center> Time limit: 1 second</center></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
+<p>The most prestigious sports club in one city has exactly N members. Each of its members is strong and beautiful. More precisely, i-th member of this club (members being numbered by the time they entered the club) has strength Si and beauty Bi. Since this is a very prestigious club, its members are very rich and therefore extraordinary people, so they often extremely hate each other. Strictly speaking, i-th member of the club Mr X hates j-th member of the club Mr Y if $S_i \le S_j$ and $B_i \ge B_j$ or if $S_i \ge Sj$ and $B_i \le B_j$ (if both properties of Mr X are greater then corresponding properties of Mr Y, he doesn’t even notice him, on the other hand, if both of his properties are less, he respects Mr Y very much).<br>To celebrate a new 2003 year, the administration of the club is planning to organize a party. However they are afraid that if two people who hate each other would simultaneouly attend the party, after a drink or two they would start a fight. So no two people who hate each other should be invited. On the other hand, to keep the club prestige at the apropriate level, administration wants to invite as many people as possible.<br>Being the only one among administration who is not afraid of touching a computer, you are to write a program which would find out whom to invite to the party.</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
+<p>The first line of the input file contains integer N — the number of members of the club. $(2 \le N \le 100000)$. Next N lines contain two numbers each — Si and Bi respectively $(1 \le S_i, B_i \le 10^9)$.</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
+<p>On the first line of the output file print the maximum number of the people that can be invited to the party. On the second line output N integers — numbers of members to be invited in arbitrary order. If several solutions exist, output any one.</p>
+</blockquote>
+<h2 id="Example"><a href="#Example" class="headerlink" title=" Example "></a><strong> Example </strong></h2><h3 id="people-in"><a href="#people-in" class="headerlink" title=" people.in  "></a><strong> people.in  </strong></h3><blockquote>
+<p>4<br>1 1<br>1 2<br>2 1<br>2 2</p>
+</blockquote>
+<h3 id="people-out"><a href="#people-out" class="headerlink" title=" people.out "></a><strong> people.out </strong></h3><blockquote>
+<p>2<br>1 4</p>
+</blockquote>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
+<p>这是一个二维的最长上升子序列问题，先对第一维排序，再对第二位做最长上升子序列。因为最后的子序列的第一维不能相同，所以我们排序时先对第一维从小到大排序，第一维相同的按第二卫从大到小排序，这样保证了第一维相同的第二维小的不会更新第二维大的，保证了算法的正确性。<br>这题还要输路径，与就是普通的输路径方法。<br>时间复杂度为$O(nlog_{2}n)$。</p>
+</blockquote>
+<h2 id="Standrad"><a href="#Standrad" class="headerlink" title=" Standrad "></a><strong> Standrad </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+inline void FO() {
+    freopen(&quot;people.in&quot;, &quot;r&quot;, stdin);
+    freopen(&quot;people.out&quot;, &quot;w&quot;, stdout);
+    return;
+}
+
+const int N = 100010, INF = 0x7fffffff;
+
+int n, len;
+int pre[N], from[N], c[N];
+struct Node {
+    int s, b, idx;
+    bool operator &lt; (const Node &amp;a) const {
+        return (s != a.s) ? (s &lt; a.s) : (b &gt; a.b);
+    }
+} a[N];
+
+int main() {
+    FO();
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 1; i &lt;= n; ++i) {
+        scanf(&quot;%d%d&quot;, &amp;a[i].s, &amp;a[i].b);
+        a[i].idx = i;
+    }
+    sort(a + 1, a + n + 1);
+    for (int i = 1; i &lt;= n; ++i) {
+        int k = lower_bound(c + 1, c + len + 1, a[i].b) - c;
+        c[k] = a[i].b;
+        from[k] = i;
+        pre[i] = from[k - 1];
+        if (len &lt; k) len = k;
+    }
+    printf(&quot;%d\n&quot;, len);
+    for (int i = from[len]; i; i = pre[i])
+        printf(&quot;%d &quot;, a[i].idx);
+    putchar(&#39;\n&#39;);
+    return 0;
+}
+</code></pre>
+<p><br>
+<br></p>
+<h1 id="Longest-Increasing-Subsequence"><a href="#Longest-Increasing-Subsequence" class="headerlink" title="Longest Increasing Subsequence"></a><a href="http://codeforces.com/problemset/problem/568/E" target="_blank" rel="external">Longest Increasing Subsequence</a></h1><p><center> time limit per test1.5 seconds</center></p>
+<p><center> memory limit per test128 megabytes</center></p>
+<p><center> inputstandard input</center></p>
+<p><center> outputstandard output</center></p>
+<h2 id="Description-1"><a href="#Description-1" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
+<p>Note that the memory limit in this problem is less than usual.<br>Let’s consider an array consisting of positive integers, some positions of which contain gaps.<br>We have a collection of numbers that can be used to fill the gaps. Each number from the given collection can be used at most once.<br>Your task is to determine such way of filling gaps that the longest increasing subsequence in the formed array has a maximum size.</p>
+</blockquote>
+<h2 id="Input-1"><a href="#Input-1" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
+<p>The first line contains a single integer $n$ — the length of the array $(1 \le n \le 10^5)$.<br>The second line contains $n$ space-separated integers — the elements of the sequence. A gap is marked as “-1”. The elements that are not gaps are positive integers not exceeding $10^9$. It is guaranteed that the sequence contains $0 \le k \le 1000$ gaps.<br>The third line contains a single positive integer $m$ — the number of elements to fill the gaps $(k \le m \le 10^5)$.<br>The fourth line contains $m$ positive integers — the numbers to fill gaps. Each number is a positive integer not exceeding $10^9$. Some numbers may be equal.</p>
+</blockquote>
+<h2 id="Output-1"><a href="#Output-1" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
+<p>Print $n$ space-separated numbers in a single line — the resulting sequence. If there are multiple possible answers, print any of them.</p>
+</blockquote>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title=" Examples "></a><strong> Examples </strong></h2><h3 id="input"><a href="#input" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>3<br>1 2 3<br>1<br>10</p>
+</blockquote>
+<h3 id="output"><a href="#output" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>1 2 3</p>
+</blockquote>
+<h3 id="input-1"><a href="#input-1" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>3<br>1 -1 3<br>3<br>1 2 3</p>
+</blockquote>
+<h3 id="output-1"><a href="#output-1" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>1 2 3</p>
+</blockquote>
+<h3 id="input-2"><a href="#input-2" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>2<br>-1 2<br>2<br>2 4</p>
+</blockquote>
+<h3 id="output-2"><a href="#output-2" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>2 2</p>
+</blockquote>
+<h3 id="input-3"><a href="#input-3" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>3<br>-1 -1 -1<br>5<br>1 1 1 1 2</p>
+</blockquote>
+<h3 id="output-3"><a href="#output-3" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>1 1 2</p>
+</blockquote>
+<h3 id="input-4"><a href="#input-4" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>4<br>-1 -1 -1 2<br>4<br>1 1 2 2</p>
+</blockquote>
+<h3 id="output-4"><a href="#output-4" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>1 2 1 2</p>
+</blockquote>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
+<p>因为一个最长上升子序列中不会有重复的数，所以可以假设可填的数可以用多次，就先把可填的数排序。<br>用第二种DP。1. 对于原来就有的位置，直接$lower \underline{} bound$求。2. 对于空缺的位置，可以一次$O(n)$求出所有可填的数的$lower \underline{} bound$。<br>安排最长上升子序列的空缺位置后，随意安排剩下的空缺的位置。<br>时间复杂度为$O(nlog_{2}n + mlog_{2}m + k \times m)$。</p>
+</blockquote>
+<h2 id="Standrad-1"><a href="#Standrad-1" class="headerlink" title=" Standrad "></a><strong> Standrad </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int N = 100010, INF = 0x7fffffff;
+
+int n, m, len;
+int a[N], b[N], c[N], pre[N], from[N], temp[N];
+bool v[N];
+
+int main() {
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%d&quot;, &amp;a[i]);
+    scanf(&quot;%d&quot;, &amp;m);
+    for (int i = 1; i &lt;= m; ++i)
+        scanf(&quot;%d&quot;, &amp;b[i]);
+    sort(b + 1, b + m + 1);
+    for (int i = 1; i &lt;= n; ++i)
+        if (~a[i]) {
+            int j = lower_bound(c + 1, c + len + 1, a[i]) - c;
+            pre[i] = from[j - 1];
+            from[j] = i;
+            c[j] = a[i];
+            if (len &lt; j) len = j;
+        } else {
+            int j = 1;
+            for (int k = 1; k &lt;= m; ++k) {
+                while (j &lt;= len &amp;&amp; c[j] &lt; b[k]) ++j;
+                temp[k] = j;
+            }
+            if (len &lt; j) len = j;
+            for (int k = m; k; --k) {
+                c[temp[k]] = b[k];
+                from[temp[k]] = from[temp[k] - 1];
+            }
+        }
+    int cnt = 0;
+    for (int i = from[len]; i; i = pre[i])
+        temp[++cnt] = i;
+    temp[0] = n + 1;
+    temp[cnt + 1] = 0;
+    a[n + 1] = INF;
+    for (int i = cnt + 1; i; --i) {
+        int last = a[temp[i]];
+        for (int j = temp[i] + 1; j &lt; temp[i - 1]; ++j)
+            if (!~a[j]) {
+                int k = upper_bound(b + 1, b + m + 1, last) - b;
+                if (k &gt; m || b[k] &gt;= a[temp[i - 1]]) break;
+                last = a[j] = b[k];
+                v[k] = 1;
+            }
+    }
+    for (int i = 1, j = 1; i &lt;= n; ++i)
+        if (!~a[i]) {
+            while (j &lt; m &amp;&amp; v[j]) ++j;
+            a[i] = b[j];
+            v[j] = 1;
+        }
+    //cerr &lt;&lt; len &lt;&lt; endl;
+    for (int i = 1; i &lt;= n; ++i)
+        printf(&quot;%d &quot;, a[i]);
+    putchar(&#39;\n&#39;);
     return 0;
 }
 </code></pre>
@@ -539,7 +856,7 @@ int main() {
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/23/BZOJ2463/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/10/18/BZOJ题目列表/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -552,6 +869,14 @@ int main() {
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2017/10/14/NOIP2017初赛准备/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -1042,6 +1367,26 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 
 
 <!-- Bing Background -->
