@@ -3,6 +3,649 @@
   
     
     <entry>
+      <title><![CDATA[BZOJ3709]]></title>
+      <url>/2017/10/26/BZOJ3709/</url>
+      <content type="html"><![CDATA[<h1 id="PA2014-Bohater"><a href="#PA2014-Bohater" class="headerlink" title="[PA2014]Bohater"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3709" target="_blank" rel="external">[PA2014]Bohater</a></h1><p><center> Time Limit: 5 Sec  Memory Limit: 128 MB  Special Judge</center></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
+<p>在一款电脑游戏中，你需要打败$n$只怪物（从$1$到$n$编号）。为了打败第$i$只怪物，你需要消耗$d_i$点生命值，但怪物死后会掉落血药，使你恢复$a_i$点生命值。任何时候你的生命值都不能降到$0$（或$0$以下）。请问是否存在一种打怪顺序，使得你可以打完这$n$只怪物而不死掉。</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
+<p>第一行两个整数$n,z$($1 \le n,z \le 100000$)，分别表示怪物的数量和你的初始生命值。<br>接下来$n$行，每行两个整数$d_i,a_i$($0 \le d_i,a_i \le 100000$)。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
+<p>第一行为$TAK$（是）或$NIE$（否），表示是否存在这样的顺序。<br>如果第一行为$TAK$，则第二行为空格隔开的$1~n$的排列，表示合法的顺序。如果答案有很多，你可以输出其中任意一个。</p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title=" Sample Input "></a><strong> Sample Input </strong></h2><blockquote>
+<p>3 5<br>3 1<br>4 8<br>8 3</p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title=" Sample Output "></a><strong> Sample Output </strong></h2><blockquote>
+<p>TAK<br>2 3 1</p>
+</blockquote>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title=" HINT "></a><strong> HINT </strong></h2><h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
+<p>把怪物分成两种，一种是$d_i \le a_i$，另一种$d_i \gt a_i$。<br>对于第一种，我们按$d_i$从小到大打，若某个怪兽打不掉了，那么不存在方案。这种贪心的正确性显而易见。<br>对于第二种，我们按$a_i$从大到小打，若某个怪兽打不掉了，那么不存在方案。那么我来证明一下这个的正确性。我们知道，打完所有的怪兽后的生命值是固定的，那么我们考虑从最后的生命值反着退回来，那么此时的就是先减去$a_i$，再加上$d_i$，如此下去。此时$a_i \lt d_i$，这么倒着做是不是与第一种情况一样？所以我们倒着按$a_i$从小到大做，就相当于正着按$a_i$从大到小做。</p>
+</blockquote>
+<h2 id="Standard"><a href="#Standard" class="headerlink" title=" Standard "></a><strong> Standard </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 100010;
+
+int n;
+LL rest;
+int a[N], b[N];
+vector&lt;int&gt; ge, le;
+
+bool Cmp1(int x, int y) {
+    return a[x] &lt; a[y];
+}
+bool Cmp2(int x, int y) {
+    return b[x] &gt; b[y];
+}
+
+int main() {
+    scanf(&quot;%d%lld&quot;, &amp;n, &amp;rest);
+    for (int i = 1; i &lt;= n; ++i) {
+        scanf(&quot;%d%d&quot;, &amp;a[i], &amp;b[i]);
+        if (a[i] &lt;= b[i]) ge.push_back(i);
+        else le.push_back(i);
+    }
+    sort(ge.begin(), ge.end(), Cmp1);
+    sort(le.begin(), le.end(), Cmp2);
+    for (int i = 0; i &lt; (int)ge.size(); ++i) {
+        if (rest &lt;= a[ge[i]]) {
+            puts(&quot;NIE&quot;);
+            return 0;
+        }
+        rest += -a[ge[i]] + b[ge[i]];
+    }
+    for (int i = 0; i &lt; (int)le.size(); ++i) {
+        if (rest &lt;= a[le[i]]) {
+            puts(&quot;NIE&quot;);
+            return 0;
+        }
+        rest += -a[le[i]] + b[le[i]];
+    }
+    puts(&quot;TAK&quot;);
+    for (int i = 0; i &lt; (int)ge.size(); ++i)
+        printf(&quot;%d &quot;, ge[i]);
+    for (int i = 0; i &lt; (int)le.size(); ++i)
+        printf(&quot;%d &quot;, le[i]);
+    putchar(&#39;\n&#39;);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> BZOJ </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[线段树]]></title>
+      <url>/2017/10/23/%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
+      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title=" 前言 "></a><strong> 前言 </strong></h3><p>假如你有一个数组$a$，现要多次询问区间和$\sum_{i=l}^r{a_i}$。<br>如果是不带修改的，那么可以前缀和，$sum_i = \sum_{j = 1}^i{a_j}$，那么$\sum_{i = l}^r{a_i} = sum_r - sum_{l - 1}$。这是预处理$O(n)$，单次询问$O(1)$。<br>那么如果要支持修改呢？显然是不能用前缀和了。<br>这里给出一种思想，就是在询问之前对数组进行一些预处理，且是对任意询问是有用的，以来降低后面单个询问的复杂度。前面的前缀和其实就是这种思想简单的一种。</p>
+<p><br><br></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title=" 简介 "></a><strong> 简介 </strong></h3><p>这里介绍一种新的数据结构——线段树。<br><strong> 线段树（segment tree）</strong> 作为一种高级数据结构，其思想基础且简单。<br>线段树主要运用了二分思想。<br>以询问区间和为例，对于一个区间$[l, r]$，把它分成左右两段$[l, m]$和$[m + 1, r] \  (m = (l + r) &gt;&gt; 1)$，那么$\sum_{i = l}^r{a_i} = \sum_{i = l}^m{a_i} + \sum_{i = m + 1}^r{a_i}$。如果已经知道了这两个子区间的和，那么就可以求出这整个区间的和。至于如何知道这两个子区间的和，我们发现这个问题与原来的问题相当，只需要继续递归做就可以了。直到区间内只有一个元素，那么这个区间的和就是这个元素的值。仔细观察，我们如果把每个区间看做一个点，那么每个点最多有两个子节点，这是一棵二叉树，而且树的深度为$O(log_{2}n)$。且这不一棵是满二叉树，假设它是满二叉树，根据二叉树的性质，深度为$O(log_{2}n)$的满二叉树的节点数是$O(n)$的，所以线段树的节点数也是$O(n)$的。</p>
+<p><br><br></p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title=" 基本操作 "></a><strong> 基本操作 </strong></h3><h4 id="存储"><a href="#存储" class="headerlink" title=" 存储 "></a><strong> 存储 </strong></h4><p>线段树的存储有多种实现方法。</p>
+<h5 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h5><p>对于每个节点，要记录它的所代表的区间的左端点和右端点，以及这个区间的信息。</p>
+<pre><code class="lang-cpp">struct Segment_Tree_Node {
+    Segment_Tree_Node(int l = 0, int r = 0) : l(l), r(r) {
+        x = Info();
+        return;
+    }
+    int l, r;
+    Info x;
+};
+</code></pre>
+<p>当前点是$k$，那么它的左子节点（如果有）就是$k &lt;&lt; 1$，它的右子节点（如果有）就是$k &lt;&lt; 1 | 1$，它的父亲节点（如果有）就是$k &gt;&gt; 1$。可以证明用到节点的最大编号是小于或等于$4 \times n$的。具体证明，待填坑。。。</p>
+<h5 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h5><pre><code class="lang-cpp">struct Segment_Tree_Node {
+    Segment_Tree_Node(int l = 0, int r = 0) : l(l), r(r) {
+        lc = rc = NULL;
+        x = Info();
+        return;
+    }
+    int l, r;
+    Segment_Tree_Node *lc, *rc;
+    Info x;
+};
+</code></pre>
+<p>指针有两种实现方法：</p>
+<ul>
+<li>内存动态分配，动态释放。</li>
+<li>先开一个内存池，往后用到不断分配，也可以用数组模拟。</li>
+</ul>
+<p>线段树一共有$2 \times n$个节点，每个节点除了用完全二叉树存储的要记录的以外，还要记录它左右子节点的指针。</p>
+<h5 id="动态开点"><a href="#动态开点" class="headerlink" title="动态开点"></a>动态开点</h5><p>对于一个修改或询问，与它有关的节点数为$O(log_{2}n)$，所以不用把所有的节点都开出来，一个节点只有被用到时才会开。空间复杂度一般为$O(mlog_{2}n)$，所以当$n$到达$10^9$或更大时也能做。</p>
+<p>后文中未明确说明，一般用完全二叉树结构存储。</p>
+<p><br><br></p>
+<h4 id="单点修改-amp-amp-区间查询"><a href="#单点修改-amp-amp-区间查询" class="headerlink" title=" 单点修改 &amp;&amp; 区间查询 "></a><strong> 单点修改 &amp;&amp; 区间查询 </strong></h4><blockquote>
+<p>每次有两种操作：1. 把一个元素加上一个数；2. 询问区间和。</p>
+</blockquote>
+<p><a href="https://www.luogu.org/problemnew/show/3374" target="_blank" rel="external">模板题目链接</a></p>
+<h5 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h5><p>记录下当前节点的所代表的区间的左端点和右端点，以及这个区间的信息（像这个例子，询问区间和就记录这个节点所代表的区间的和）。<br>若某个节点所代表的区间只有一个元素，那么这个区间的信息就由该元素算出。否则，它就有左右子节点，递归算出它们的信息，该节点的信息就由它们算出。<br>到这里预处理就结束了。</p>
+<pre><code class="lang-cpp">#define lc k &lt;&lt; 1
+#define rc k &lt;&lt; 1 | 1
+
+const int N = 100010;
+
+int n;
+int a[N];
+
+struct Node {
+    int l, r, sum;
+} p[N &lt;&lt; 2];
+
+void Build(int k, int l, int r) {
+    p[k].l = l;
+    p[k].r = r;
+    if (l == r) {
+        p[k].sum = a[l];
+        return;
+    }
+    int m = (l + r) &gt;&gt; 1;
+    Build(lc, l, m);
+    Build(rc, m + 1, r);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h5><p>在当前节点所代表的区间修改在$x$位置上的元素加上$d$。<br>若当前节点是叶子节点，那么该节点肯定是$x$，把该节点的信息对$d$修改。<br>否则，若它在当前节点左子节点所代表的区间内，递归修改左子节点，否则递归修改右子节点，修改完后更新当前节点的信息。<br>由于线段树的深度为$O(log_{2}n)$，所以从根节点到某叶子节点的距离为$O(log_{2}n)$，所以时间复杂度为$O(log_{2}n)$。</p>
+<pre><code class="lang-cpp">void Modify(int k, int x, int d) {
+    if (p[k].l == x &amp;&amp; x == p[k].r) {
+        p[k].sum += d;
+        return;
+    }
+    if (x &lt;= p[lc].r) Modify(lc, x, d);
+    else Modify(rc, x, d);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="询问"><a href="#询问" class="headerlink" title="询问"></a>询问</h5><p>在当前节点所代表的区间内询问在区间$[l, r]$中的元素的和。<br>若当前节点所代表的区间是区间$[l, r]$的一个子区间，那么直接返回当前节点所记录的和。<br>否则若区间$[l, r]$与当前节点左子节点所代表的区间有交集，那么答案加上递归询问左子节点的和，若区间$[l, r]$与当前节点右子节点所代表的区间有交集，那么答案加上递归询问右子节点的和。最后的总和就是答案。<br>一个区间最多被划分成线段树上的$O(log_{2}n)$个节点，所以单次询问的时间复杂度为$O(log_{2}n)$。具体证明，待填坑。。。</p>
+<pre><code class="lang-cpp">int Query(int k, int l, int r) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) return p[k].sum;
+    int sum = 0;
+    if (l &lt;= p[lc].r) sum += Query(lc, l, r);
+    if (p[rc].l &lt;= r) sum += Query(rc, l, r);
+    return sum;
+}
+</code></pre>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%d&quot;, &amp;a[i]);
+    Build(1, 1, n);
+    while (m--) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (t == 1) {
+            int x, d;
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;d);
+            Modify(1, x, d);
+        } else {
+            int l, r;
+            scanf(&quot;%d%d&quot;, &amp;l, &amp;r);
+            printf(&quot;%d\n&quot;, Query(1, l, r));
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p><br><br></p>
+<h4 id="区间修改-amp-amp-单点查询"><a href="#区间修改-amp-amp-单点查询" class="headerlink" title=" 区间修改 &amp;&amp; 单点查询 "></a><strong> 区间修改 &amp;&amp; 单点查询 </strong></h4><blockquote>
+<p>每次有两种操作：1. 把一个区间加上一个数；2. 询问一个元素的和。</p>
+</blockquote>
+<p><a href="https://www.luogu.org/problemnew/show/3368" target="_blank" rel="external">模板题目链接</a></p>
+<p>这种被介绍在树状数组中或许更好一点。<br>把原序列$a$差分成序列$b$，对于每一个修改操作$(l, r, x)$，把它转成两个操作，在差分数组的第$l$个元素上加上$x$，在差分数组的第$r + 1$个元素上加上$-x$。这样，如果要求原序列第$x$个元素的值，那么就是差分数组的前$x$个元素的和$\sum_{i = 1}^x{b_i}$。这样就把(区间修改 &amp;&amp; 单点查询)转化成(单点修改 &amp;&amp; 区间查询)了。</p>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i) {
+        scanf(&quot;%d&quot;, &amp;b[i]);
+        a[i] = b[i] - b[i - 1];
+    }
+    Build(1, 1, n);
+    while (m--) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (t == 1) {
+            int l, r, d;
+            scanf(&quot;%d%d%d&quot;, &amp;l, &amp;r, &amp;d);
+            Modify(1, l, d);
+            if (r &lt; n) Modify(1, r + 1, -d);
+        } else {
+            int x;
+            scanf(&quot;%d&quot;, &amp;x);
+            printf(&quot;%d\n&quot;, Query(1, 1, x));
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p><br><br></p>
+<h4 id="区间修改-amp-amp-区间查询"><a href="#区间修改-amp-amp-区间查询" class="headerlink" title=" 区间修改 &amp;&amp; 区间查询 "></a><strong> 区间修改 &amp;&amp; 区间查询 </strong></h4><blockquote>
+<p>每次有两种操作：1. 把一个区间加上一个数；2. 询问区间和。</p>
+</blockquote>
+<p><a href="https://www.luogu.org/problemnew/show/3372" target="_blank" rel="external">模板题目链接</a></p>
+<p>这里介绍一种 <strong> Lazy-Tag </strong> 思想。<br>在每个节点记录一个标记$lazy$，代表这个区间还没有下传的标记。例如，在区间加一个数中，记录的就是这个区间的所有子区间还要加的数的总和。</p>
+<h5 id="预处理-1"><a href="#预处理-1" class="headerlink" title="预处理"></a>预处理</h5><p>增加对每个节点$lazy$标记的预处理。</p>
+<pre><code class="lang-cpp">#define lc k &lt;&lt; 1
+#define rc k &lt;&lt; 1 | 1
+
+typedef long long LL;
+
+const int N = 100010;
+
+int n;
+LL a[N];
+
+struct Node {
+    int l, r;
+    LL sum, lazy;
+} p[N &lt;&lt; 2];
+
+void Build(int k, int l, int r) {
+    p[k].l = l;
+    p[k].r = r;
+    if (l == r) {
+        p[k].sum = a[l];
+        p[k].lazy = 0;
+        return;
+    }
+    int m = (l + r) &gt;&gt; 1;
+    Build(lc, l, m);
+    Build(rc, m + 1, r);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="标记下传"><a href="#标记下传" class="headerlink" title="标记下传"></a>标记下传</h5><p>把节点$k$的标记下传。<br>左子节点的和加上左子节点所代表的区间所含的元素个数$\times$当前节点的标记。左子节点的标记加上当前节点的标记。<br>右子节点的和加上右子节点所代表的区间所含的元素个数$\times$当前节点的标记。右子节点的标记加上当前节点的标记。<br>不要忘了把当前节点的标记清零。</p>
+<pre><code class="lang-cpp">inline void Pushdown(int k) {
+    p[lc].sum += p[k].lazy * (p[lc].r - p[lc].l + 1);
+    p[lc].lazy += p[k].lazy;
+    p[rc].sum += p[k].lazy * (p[rc].r - p[rc].l + 1);
+    p[rc].lazy += p[k].lazy;
+    p[k].lazy = 0;
+    return;
+}
+</code></pre>
+<h5 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h5><p>在当前节点所代表的区间内将在区间$[l, r]$中的元素的加上$d$。<br>若当前节点所代表的区间是区间$[l, r]$的一个子区间，那么当前节点的和加上$d \times$当前区间的元素个数，$lazy$标记加上$d$。<br>否则下传当前节点的标记。若区间$[l, r]$与当前节点左子节点所代表的区间有交集，那么对左子节点进行修改，若区间$[l, r]$与当前节点右子节点所代表的区间有交集，那么对右子节点进行修改，修改完后更新当前节点的信息。</p>
+<pre><code class="lang-cpp">void Modify(int k, int l, int r, LL d) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) {
+        p[k].sum += d * (p[k].r - p[k].l + 1);
+        p[k].lazy += d;
+        return;
+    }
+    if (p[k].lazy) Pushdown(k);
+    if (l &lt;= p[lc].r) Modify(lc, l, r, d);
+    if (p[rc].l &lt;= r) Modify(rc, l, r, d);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="询问-1"><a href="#询问-1" class="headerlink" title="询问"></a>询问</h5><p>在当前节点所代表的区间内询问在区间$[l, r]$中的元素的和。<br>若当前节点所代表的区间是区间$[l, r]$的一个子区间，那么直接返回当前节点所记录的和。<br>否则下传当前节点的标记。若区间$[l, r]$与当前节点左子节点所代表的区间有交集，那么答案加上递归询问左子节点的和，若区间$[l, r]$与当前节点右子节点所代表的区间有交集，那么答案加上递归询问右子节点的和。最后的总和就是答案。</p>
+<pre><code class="lang-cpp">LL Query(int k, int l, int r) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) return p[k].sum;
+    if (p[k].lazy) Pushdown(k);
+    LL sum = 0;
+    if (l &lt;= p[lc].r) sum += Query(lc, l, r);
+    if (p[rc].l &lt;= r) sum += Query(rc, l, r);
+    return sum;
+}
+</code></pre>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%lld&quot;, &amp;a[i]);
+    Build(1, 1, n);
+    while (m--) {
+        int t, l, r;
+        scanf(&quot;%d%d%d&quot;, &amp;t, &amp;l, &amp;r);
+        if (t == 1) {
+            LL d;
+            scanf(&quot;%lld&quot;, &amp;d);
+            Modify(1, l, r, d);
+        } else printf(&quot;%lld\n&quot;, Query(1, l, r));
+    }
+    return 0;
+}
+</code></pre>
+<p>$Pushdown$是$O(1)$的，所以$lazy-tag$并不会影响复杂度。</p>
+<p><br>&lt;/br&gt;<br><br><br></p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title=" 扩展 "></a><strong> 扩展 </strong></h3><h4 id="可持久化线段树和主席树（函数式线段树）"><a href="#可持久化线段树和主席树（函数式线段树）" class="headerlink" title=" 可持久化线段树和主席树（函数式线段树） "></a><strong> 可持久化线段树和主席树（函数式线段树） </strong></h4><p><strong> 可持久化线段树 </strong> 就是线段树的可持久化。它有一个最初的版本，每次可在在某个版本的基础上修改并新增一个版本，且需要支持查询历史版本。</p>
+<p>如果每次复制原来的线段树，再在新的线段树上修改，时间和空间复杂度都会到达$O(n \times m)$。这样高的复杂度是无法承受的。<br>我们观察后发现，线段树每次修改，只会修改线段树上$O(log_{2}n)$个节点，我们只需要新建这$O(log_{2}n)$个节点，其它的节点我们可以共用。这里就要用到动态开点了。这样时间复杂度和空间复杂度都降为$O((n + m)log_{2}n)$。</p>
+<p><a href="http://cogs.pro:8080/cogs/problem/problem.php?pid=2554" target="_blank" rel="external">模板题目链接</a></p>
+<h5 id="预处理-2"><a href="#预处理-2" class="headerlink" title="预处理"></a>预处理</h5><p>现在是动态开点的，所以要开一个节点的内存池。节点信息中要加上左右子节点的指针（可以用数组模拟）。</p>
+<pre><code class="lang-cpp">const int N = 100010, M = 100010, P = 17, _INF = 0x80000000;
+
+int n, m;
+int a[N];
+
+int tot = 0, root[M];
+struct Node {
+    int lc, rc, l, r, Max;
+} p[(N &lt;&lt; 2) + M * P];
+
+int Build(int l, int r) {
+    int k = ++tot;
+    p[k].l = l;
+    p[k].r = r;
+    if (l == r) {
+        p[k].Max = a[l];
+        return k;
+    }
+    int m = (l + r) &gt;&gt; 1;
+    p[k].lc = Build(l, m);
+    p[k].rc = Build(m + 1, r);
+    p[k].Max = max(p[p[k].lc].Max, p[p[k].rc].Max);
+    return k;
+}
+</code></pre>
+<h5 id="修改-2"><a href="#修改-2" class="headerlink" title="修改"></a>修改</h5><p>对于所有要修改的节点，再新建一个（从内存池中分配一个），对其进行修改。</p>
+<pre><code class="lang-cpp">int Modify(int k, int x, int d) {
+    int K = ++tot;
+    p[K] = p[k];
+    if (p[k].l == x &amp;&amp; x == p[k].r) {
+        p[K].Max = d;
+        return K;
+    }
+    if (x &lt;= p[p[k].lc].r) p[K].lc = Modify(p[k].lc, x, d);
+    else p[K].rc = Modify(p[k].rc, x, d);
+    p[K].Max = max(p[p[K].lc].Max, p[p[K].rc].Max);
+    return K;
+}
+</code></pre>
+<h5 id="询问-2"><a href="#询问-2" class="headerlink" title="询问"></a>询问</h5><p>询问其实变化不大。</p>
+<pre><code class="lang-cpp">int Query(int k, int l, int r) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) return p[k].Max;
+    int Max = _INF;
+    if (l &lt;= p[p[k].lc].r) Max = max(Max, Query(p[k].lc, l, r));
+    if (p[p[k].rc].l &lt;= r) Max = max(Max, Query(p[k].rc, l, r));
+    return Max;
+}
+</code></pre>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%d&quot;, &amp;a[i]);
+    int cnt = 0;
+    root[cnt = 1] = Build(1, n);
+    while (m--) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (!t) {
+            int k, l, r;
+            scanf(&quot;%d%d%d&quot;, &amp;k, &amp;l, &amp;r);
+            printf(&quot;%d\n&quot;, Query(root[k], l, r));
+        } else {
+            int k, x, d;
+            scanf(&quot;%d%d%d&quot;, &amp;k, &amp;x, &amp;d);
+            root[++cnt] = Modify(root[k], x, d);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p><br><br></p>
+<h4 id="线段树合并"><a href="#线段树合并" class="headerlink" title=" 线段树合并 "></a><strong> 线段树合并 </strong></h4><p>将两棵线段树合并成一棵新的线段树。</p>
+<pre><code class="lang-cpp">int Merge(int k1, int k2) {
+    if (!k1) return k2;
+    if (!k2) return k1;
+    int k = ++tot;
+    p[k].lc = Merge(p[k1].lc, p[k2].lc);
+    p[k].rc = Merge(p[k1].rc, p[k2].rc);
+    p[k].sum = p[p[k].lc].sum + p[p[k].rc].sum;
+    return k;
+}
+</code></pre>
+<p>开始时你有$n$棵线段树，每棵线段树都有一个节点，现在你不断把它们合并，直到只有一棵线段树，这个总的时间复杂度是$O(nlog_{2}n)$的。因为你每次合并都会使某些区间上所含的点变多，那么总复杂度即为线段树上所有节点所包含的元素数之和，线段树一共有$O(log_{2}n)$层，每层都有$O(n)$个节点，所以一共有$O(nlog_{2}n)$个节点，所以时间复杂度也是这个。</p>
+<h4 id="线段树分裂"><a href="#线段树分裂" class="headerlink" title=" 线段树分裂 "></a><strong> 线段树分裂 </strong></h4>]]></content>
+      
+        <categories>
+            
+            <category> 数据结构 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 线段树 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CodeForces555E]]></title>
+      <url>/2017/10/22/CodeForces555E/</url>
+      <content type="html"><![CDATA[<h1 id="Case-of-Computer-Network"><a href="#Case-of-Computer-Network" class="headerlink" title="Case of Computer Network"></a><a href="http://codeforces.com/contest/555/problem/E" target="_blank" rel="external">Case of Computer Network</a></h1><p><center> time limit per test3 seconds</center></p>
+<p><center> memory limit per test256 megabytes</center></p>
+<p><center> inputstandard input</center></p>
+<p><center> outputstandard output</center></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
+<p>Andrewid the Android is a galaxy-known detective. Now he is preparing a defense against a possible attack by hackers on a major computer network.</p>
+<p>In this network are $n$ vertices, some pairs of vertices are connected by $m$ undirected channels. It is planned to transfer $q$ important messages via this network, the i-th of which must be sent from vertex $s_i$ to vertex $d_i$ via one or more channels, perhaps through some intermediate vertices.</p>
+<p>To protect against attacks a special algorithm was developed. Unfortunately it can be applied only to the network containing directed channels. Therefore, as new channels can’t be created, it was decided for each of the existing undirected channels to enable them to transmit data only in one of the two directions.</p>
+<p>Your task is to determine whether it is possible so to choose the direction for each channel so that each of the $q$ messages could be successfully transmitted.</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
+<p>The first line contains three integers $n$, $m$ and $q$ ($1 \le n,m,q \le 2 \times 10^5$) — the number of nodes, channels and important messages.</p>
+<p>Next $m$ lines contain two integers each, $v_i$ and $u_i$ ($1 \le v_i,u_i \le n, \  v_i \neq u_i$), that means that between nodes $v_i$ and $u_i$ is a channel. Between a pair of nodes can exist more than one channel.</p>
+<p>Next $q$ lines contain two integers $s_i$ and $d_i$ ($1 \le s_i, \le  d_i \le n, \  s_i \neq d_i$) — the numbers of the nodes of the source and destination of the corresponding message.</p>
+<p>It is not guaranteed that in it initially possible to transmit all the messages.</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
+<p>If a solution exists, print on a single line “Yes” (without the quotes). Otherwise, print “No” (without the quotes).</p>
+</blockquote>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title=" Examples "></a><strong> Examples </strong></h2><h3 id="input"><a href="#input" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>4 4 2<br>1 2<br>1 3<br>2 3<br>3 4<br>1 3<br>4 2</p>
+</blockquote>
+<h3 id="output"><a href="#output" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>Yes</p>
+</blockquote>
+<h3 id="input-1"><a href="#input-1" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>3 2 2<br>1 2<br>3 2<br>1 3<br>2 1</p>
+</blockquote>
+<h3 id="output-1"><a href="#output-1" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>No</p>
+</blockquote>
+<h3 id="input-2"><a href="#input-2" class="headerlink" title=" input "></a><strong> input </strong></h3><blockquote>
+<p>3 3 2<br>1 2<br>1 2<br>3 2<br>1 3<br>2 1</p>
+</blockquote>
+<h3 id="output-2"><a href="#output-2" class="headerlink" title=" output "></a><strong> output </strong></h3><blockquote>
+<p>Yes</p>
+</blockquote>
+<h2 id="Note"><a href="#Note" class="headerlink" title=" Note "></a><strong> Note </strong></h2><blockquote>
+<p>In the first sample test you can assign directions, for example, as follows: 1 → 2, 1 → 3, 3 → 2, 4 → 3. Then the path for for the first message will be 1 → 3, and for the second one — 4 → 3 → 2.</p>
+<p>In the third sample test you can assign directions, for example, as follows: 1 → 2, 2 → 1, 2 → 3. Then the path for the first message will be 1 → 2 → 3, and for the second one — 2 → 1.</p>
+</blockquote>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
+<p>给出一个$n$个点，$m$条边的无向图，问是否存在一种给每条边定向把它转成有向图的方法，使$q$个点对$s_i,d_i$，$s_i$可以到达$d_i$。可以输出”Yes”（不带引号），不可以输出”No”（不带引号）。</p>
+<p>对于一个点对$s_i,d_i$，$s_i$到$d_i$所有路径的边集一定是一些由割边连接着的边双，割边必须要强制定向。至于边双，发现每个边双一定可以给它定向使它强连通，该强连通子图任意两个点都可以互相到达，所以只需要处理割边上的冲突。把原图的每个边双缩点，使原图成为一个森林（原图可能不联通）。再对进行树上差分，算出每条边的两种方向的个数。若某个点对$s_i,d_i$不在同一个联通块内，则不存在方案。否则算出两个点的LCA$l_i$，对$u_i$到$l_i$打上向上边的标记，对$l_i$到$v_i$打上向下边的标记。最后DFS一遍算出每条边的两种方向的个数，枚举每条边，若某条边两种方向存在冲突，则不存在方案，否则存在方案。</p>
+</blockquote>
+<h2 id="Standrad"><a href="#Standrad" class="headerlink" title=" Standrad "></a><strong> Standrad </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+const int N = 200010, M = 200010, P = 18;
+
+int n, m, q;
+struct Graph {
+    int tot, head[N];
+    Graph() {
+        tot = -1;
+        memset(head, -1, sizeof(head));
+        return;
+    }
+    struct Edge {
+        int p, next;
+    } edge[M &lt;&lt; 1];
+    inline void Add(int u, int v) {
+        edge[++tot] = (Edge) {v, head[u]};
+        head[u] = tot;
+        return;
+    }
+} og, ng;
+
+int f[N], link[N];
+int Gf(int k) {
+    return (f[k] != k) ? (f[k] = Gf(f[k])) : (k);
+}
+int Link_Gf(int k) {
+    return (link[k] != k) ? (link[k] = Link_Gf(link[k])) : (k);
+}
+
+int k = 0, dfn[N], low[N], fa[N][P], dep[N];
+int tk = 0, t[N];
+
+void Tarjan(int u, int comedge) {
+    dfn[u] = low[u] = ++k;
+    t[++tk] = u;
+    for (int i = og.head[u]; ~i; i = og.edge[i].next) {
+        int v = og.edge[i].p;
+        if (!dfn[v]) {
+            Tarjan(v, i);
+            low[u] = min(low[u], low[v]);
+        } else if ((i ^ 1) != comedge) low[u] = min(low[u], dfn[v]);
+    }
+    if (dfn[u] == low[u]) {
+        if (~comedge) fa[u][0] = og.edge[comedge ^ 1].p;
+        for (int i; i = t[tk--], i != u; f[i] = u);
+    }
+    return;
+}
+
+void DFS(int u) {
+    dep[u] = dep[fa[u][0]] + 1;
+    for (int i = ng.head[u]; ~i; i = ng.edge[i].next)
+        DFS(ng.edge[i].p);
+    return;
+}
+
+void Pre() {
+    for (int j = 1; j &lt; P; ++j)
+        for (int i = 1; i &lt;= n; ++i)
+            fa[i][j] = fa[fa[i][j - 1]][j - 1];
+    return;
+}
+
+int LCA(int u, int v) {
+    if (dep[u] &lt; dep[v]) swap(u, v);
+    for (int i = 0, j = dep[u] - dep[v]; j; ++i, j &gt;&gt;= 1)
+        if (j &amp; 1) u = fa[u][i];
+    if (u == v) return u;
+    for (int i = P - 1; ~i; --i)
+        if (fa[u][i] != fa[v][i]) {
+            u = fa[u][i];
+            v = fa[v][i];
+        }
+    return fa[u][0];
+}
+
+int sum1[N], sum2[N];
+
+void Count(int u) {
+    for (int i = ng.head[u]; ~i; i = ng.edge[i].next) {
+        int v = ng.edge[i].p;
+        Count(v);
+        sum1[u] += sum1[v];
+        sum2[u] += sum2[v];
+    }
+    return;
+}
+
+int main() {
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;q);
+    for (int i = 1; i &lt;= n; ++i) {
+        f[i] = i;
+        link[i] = i;
+    }
+    for (int i = 1; i &lt;= m; ++i) {
+        int u, v;
+        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        og.Add(u, v);
+        og.Add(v, u);
+        link[Link_Gf(v)] = Link_Gf(u);
+    }
+    for (int i = 1; i &lt;= n; ++i)
+        if (link[i] == i) Tarjan(i, -1);
+    for (int i = 1; i &lt;= n; ++i)
+        if (fa[i][0]) ng.Add(fa[i][0] = Gf(fa[i][0]), i);
+    for (int i = 1; i &lt;= n; ++i)
+        if (link[i] == i) DFS(i);
+    Pre();
+    for (int i = 1; i &lt;= q; ++i) {
+        int u, v;
+        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        if (Link_Gf(u) != Link_Gf(v)) {
+            puts(&quot;No&quot;);
+            return 0;
+        }
+        u = Gf(u);
+        v = Gf(v);
+        int l = LCA(u, v);
+        ++sum1[u];
+        --sum1[l];
+        ++sum2[v];
+        --sum2[l];
+    }
+    for (int i = 1; i &lt;= n; ++i)
+        if (link[i] == i) Count(i);
+    bool flag = 1;
+    for (int i = 1; i &lt;= n; ++i)
+        if (sum1[i] &amp;&amp; sum2[i]) {
+            flag = 0;
+            break;
+        }
+    if (flag) puts(&quot;Yes&quot;);
+    else puts(&quot;No&quot;);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> CodeForces </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 边双连通分量 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[BZOJ题目列表]]></title>
       <url>/2017/10/18/BZOJ%E9%A2%98%E7%9B%AE%E5%88%97%E8%A1%A8/</url>
       <content type="html"><![CDATA[<h3 id="学习一天可做"><a href="#学习一天可做" class="headerlink" title="学习一天可做"></a>学习一天可做</h3><div class="table-container">
@@ -6725,7 +7368,8 @@ int main() {
 <p><br>
 <br></p>
 <h1 id="导弹拦截"><a href="#导弹拦截" class="headerlink" title="导弹拦截"></a><a href="https://www.luogu.org/problem/show?pid=1020" target="_blank" rel="external">导弹拦截</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title=" 题目描述 "></a><strong> 题目描述 </strong></h2><blockquote>
-<p>某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。<br>输入导弹依次飞来的高度（雷达给出的高度数据是不大于$50000$的正整数），计算这套系统最多能拦截多少导弹，如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。</p>
+<p>某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。</p>
+<p>输入导弹依次飞来的高度（雷达给出的高度数据是不大于$50000$的正整数），计算这套系统最多能拦截多少导弹，如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。</p>
 </blockquote>
 <h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title=" 输入格式 "></a><strong> 输入格式 </strong></h2><blockquote>
 <p>一行，若干个整数（个数少于$100000$）。</p>
@@ -6779,10 +7423,12 @@ int main() {
 <p><center> Output file: people.out</center></p>
 <p><center> Time limit: 1 second</center></p>
 <h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
-<p>The most prestigious sports club in one city has exactly N members. Each of its members is strong and beautiful. More precisely, i-th member of this club (members being numbered by the time they entered the club) has strength Si and beauty Bi. Since this is a very prestigious club, its members are very rich and therefore extraordinary people, so they often extremely hate each other. Strictly speaking, i-th member of the club Mr X hates j-th member of the club Mr Y if $S_i \le S_j$ and $B_i \ge B_j$ or if $S_i \ge Sj$ and $B_i \le B_j$ (if both properties of Mr X are greater then corresponding properties of Mr Y, he doesn’t even notice him, on the other hand, if both of his properties are less, he respects Mr Y very much).<br>To celebrate a new 2003 year, the administration of the club is planning to organize a party. However they are afraid that if two people who hate each other would simultaneouly attend the party, after a drink or two they would start a fight. So no two people who hate each other should be invited. On the other hand, to keep the club prestige at the apropriate level, administration wants to invite as many people as possible.<br>Being the only one among administration who is not afraid of touching a computer, you are to write a program which would find out whom to invite to the party.</p>
+<p>The most prestigious sports club in one city has exactly N members. Each of its members is strong and beautiful. More precisely, i-th member of this club (members being numbered by the time they entered the club) has strength $S_i$ and beauty $B_i$. Since this is a very prestigious club, its members are very rich and therefore extraordinary people, so they often extremely hate each other. Strictly speaking, i-th member of the club Mr X hates j-th member of the club Mr Y if $S_i \le S_j$ and $B_i \ge B_j$ or if $S_i \ge Sj$ and $B_i \le B_j$ (if both properties of Mr X are greater then corresponding properties of Mr Y, he doesn’t even notice him, on the other hand, if both of his properties are less, he respects Mr Y very much). </p>
+<p>To celebrate a new 2003 year, the administration of the club is planning to organize a party. However they are afraid that if two people who hate each other would simultaneouly attend the party, after a drink or two they would start a fight. So no two people who hate each other should be invited. On the other hand, to keep the club prestige at the apropriate level, administration wants to invite as many people as possible.</p>
+<p>Being the only one among administration who is not afraid of touching a computer, you are to write a program which would find out whom to invite to the party.</p>
 </blockquote>
 <h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
-<p>The first line of the input file contains integer N — the number of members of the club. $(2 \le N \le 100000)$. Next N lines contain two numbers each — Si and Bi respectively $(1 \le S_i, B_i \le 10^9)$.</p>
+<p>The first line of the input file contains integer N — the number of members of the club. ($2 \le N \le 100000$). Next N lines contain two numbers each — Si and Bi respectively ($1 \le S_i, B_i \le 10^9$).</p>
 </blockquote>
 <h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
 <p>On the first line of the output file print the maximum number of the people that can be invited to the party. On the second line output N integers — numbers of members to be invited in arbitrary order. If several solutions exist, output any one.</p>
@@ -6794,7 +7440,8 @@ int main() {
 <p>2<br>1 4</p>
 </blockquote>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
-<p>这是一个二维的最长上升子序列问题，先对第一维排序，再对第二位做最长上升子序列。因为最后的子序列的第一维不能相同，所以我们排序时先对第一维从小到大排序，第一维相同的按第二卫从大到小排序，这样保证了第一维相同的第二维小的不会更新第二维大的，保证了算法的正确性。<br>这题还要输路径，与就是普通的输路径方法。<br>时间复杂度为$O(nlog_{2}n)$。</p>
+<p>一个俱乐部有$n$个成员，每个成员有力量值$S_i$和美丽值$B_i$，成员$i$与成员$j$互相讨厌当且仅当$(S_i \le S_j \  \&amp; \&amp; \  B_i \ge B_j) \  | | \  (S_i \ge Sj \  \&amp; \&amp; \  B_i \le B_j)$。现在该俱乐部要组织一个聚会，问你最多邀请多少人，满足他们都不互相讨厌，输出最多人数及方案（任意一种）。</p>
+<p>分析发现，对于合法安排方案的两个成员$i,j$，$S_i \neq S_j \  \&amp; \&amp; \  B_i \neq B_j \  \&amp; \&amp; \  sgn(S_i - S_j) = sgn(B_i - B_j)$。<br>那么这就是一个二维的最长上升子序列问题，先对第一维排序，再对第二位做最长上升子序列。因为最后的子序列的第一维不能相同，所以我们排序时先对第一维从小到大排序，第一维相同的按第二维从大到小排序，这样保证了第一维相同的第二维小的不会更新第二维大的，保证了算法的正确性。<br>这题还要输路径，与就是普通的输路径方法。<br>时间复杂度为$O(nlog_{2}n)$。</p>
 </blockquote>
 <h2 id="Standrad"><a href="#Standrad" class="headerlink" title=" Standrad "></a><strong> Standrad </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
@@ -6849,10 +7496,16 @@ int main() {
 <p><center> inputstandard input</center></p>
 <p><center> outputstandard output</center></p>
 <h2 id="Description-1"><a href="#Description-1" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
-<p>Note that the memory limit in this problem is less than usual.<br>Let’s consider an array consisting of positive integers, some positions of which contain gaps.<br>We have a collection of numbers that can be used to fill the gaps. Each number from the given collection can be used at most once.<br>Your task is to determine such way of filling gaps that the longest increasing subsequence in the formed array has a maximum size.</p>
+<p>Note that the memory limit in this problem is less than usual.</p>
+<p>Let’s consider an array consisting of positive integers, some positions of which contain gaps.</p>
+<p>We have a collection of numbers that can be used to fill the gaps. Each number from the given collection can be used at most once.</p>
+<p>Your task is to determine such way of filling gaps that the longest increasing subsequence in the formed array has a maximum size.</p>
 </blockquote>
 <h2 id="Input-1"><a href="#Input-1" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
-<p>The first line contains a single integer $n$ — the length of the array $(1 \le n \le 10^5)$.<br>The second line contains $n$ space-separated integers — the elements of the sequence. A gap is marked as “-1”. The elements that are not gaps are positive integers not exceeding $10^9$. It is guaranteed that the sequence contains $0 \le k \le 1000$ gaps.<br>The third line contains a single positive integer $m$ — the number of elements to fill the gaps $(k \le m \le 10^5)$.<br>The fourth line contains $m$ positive integers — the numbers to fill gaps. Each number is a positive integer not exceeding $10^9$. Some numbers may be equal.</p>
+<p>The first line contains a single integer $n$ — the length of the array ($1 \le n \le 10^5$).</p>
+<p>The second line contains $n$ space-separated integers — the elements of the sequence. A gap is marked as “-1”. The elements that are not gaps are positive integers not exceeding $10^9$. It is guaranteed that the sequence contains $0 \le k \le 1000$ gaps.</p>
+<p>The third line contains a single positive integer $m$ — the number of elements to fill the gaps ($k \le m \le 10^5$).</p>
+<p>The fourth line contains $m$ positive integers — the numbers to fill gaps. Each number is a positive integer not exceeding $10^9$. Some numbers may be equal.</p>
 </blockquote>
 <h2 id="Output-1"><a href="#Output-1" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
 <p>Print $n$ space-separated numbers in a single line — the resulting sequence. If there are multiple possible answers, print any of them.</p>
@@ -6888,6 +7541,7 @@ int main() {
 <p>1 2 1 2</p>
 </blockquote>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
+<p>给你一个长度为$n$的序列，序列中有$k$个位置是空缺的，你现在有$m$个数，你可以把它们填入空缺的位置，每个数只能用一次，最大化最后序列的最长上升子序列的长度，输出最后序列。</p>
 <p>因为一个最长上升子序列中不会有重复的数，所以可以假设可填的数可以用多次，就先把可填的数排序。<br>用第二种DP。1. 对于原来就有的位置，直接$lower \underline{} bound$求。2. 对于空缺的位置，可以一次$O(n)$求出所有可填的数的$lower \underline{} bound$。<br>安排最长上升子序列的空缺位置后，随意安排剩下的空缺的位置。<br>时间复杂度为$O(nlog_{2}n + mlog_{2}m + k \times m)$。</p>
 </blockquote>
 <h2 id="Standrad-1"><a href="#Standrad-1" class="headerlink" title=" Standrad "></a><strong> Standrad </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;

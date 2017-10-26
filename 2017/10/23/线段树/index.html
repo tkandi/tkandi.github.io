@@ -39,7 +39,7 @@
     
     <title>
         
-            BZOJ2463 | 
+            线段树 | 
         
         tkandi&#39;s blog
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="tkandi">
     <meta name="description" itemprop="description" content="tkandi&#39;s blog">
-    <meta name="keywords" content=",博弈">
+    <meta name="keywords" content=",线段树">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -237,18 +237,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://tkandi.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="BZOJ2463 | tkandi&#39;s blog">
+    <meta property="og:title" content="线段树 | tkandi&#39;s blog">
     <meta property="og:image" content="http://tkandi.github.io/img/favicon.ico" />
     <meta property="og:description" content="tkandi&#39;s blog">
-    <meta property="og:article:tag" content="博弈"> 
+    <meta property="og:article:tag" content="线段树"> 
 
     
-        <meta property="article:published_time" content="Sat Sep 23 2017 15:15:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Oct 18 2017 19:59:15 GMT+0800" />
+        <meta property="article:published_time" content="Mon Oct 23 2017 20:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Oct 24 2017 22:29:53 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="BZOJ2463 | tkandi&#39;s blog">
+    <meta name="twitter:title" content="线段树 | tkandi&#39;s blog">
     <meta name="twitter:description" content="tkandi&#39;s blog">
     <meta name="twitter:image" content="http://tkandi.github.io/img/favicon.ico">
     <meta name="twitter:card" content="summary_large_image" />
@@ -256,7 +256,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://tkandi.github.io/2017/09/23/BZOJ2463/index.html" />
+        <link rel="canonical" href="http://tkandi.github.io/2017/10/23/线段树/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -268,10 +268,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://tkandi.github.io/2017/09/23/BZOJ2463/index.html",
-    "headline": "BZOJ2463",
-    "datePublished": "Sat Sep 23 2017 15:15:00 GMT+0800",
-    "dateModified": "Wed Oct 18 2017 19:59:15 GMT+0800",
+    "mainEntityOfPage": "http://tkandi.github.io/2017/10/23/线段树/index.html",
+    "headline": "线段树",
+    "datePublished": "Mon Oct 23 2017 20:00:00 GMT+0800",
+    "dateModified": "Tue Oct 24 2017 22:29:53 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tkandi",
@@ -289,7 +289,7 @@
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",博弈",
+    "keywords": ",线段树",
     "description": "tkandi&#39;s blog",
 }
 </script>
@@ -355,7 +355,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2463-中山市选2009-谁能赢呢？"><span class="post-toc-number">1.</span> <span class="post-toc-text">2463: [中山市选2009]谁能赢呢？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> Description </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> Sample Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> Sample Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HINT"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> HINT </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> Solution </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Standard"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> Standard </span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 前言 </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 简介 </span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本操作"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 基本操作 </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#存储"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"> 存储 </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#完全二叉树"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">完全二叉树</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#指针"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">指针</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#动态开点"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">动态开点</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单点修改-amp-amp-区间查询"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> 单点修改 && 区间查询 </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#预处理"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">预处理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#询问"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">询问</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#区间修改-amp-amp-单点查询"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"> 区间修改 && 单点查询 </span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#区间修改-amp-amp-区间查询"><span class="post-toc-number">3.4.</span> <span class="post-toc-text"> 区间修改 && 区间查询 </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#预处理-1"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">预处理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#标记下传"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">标记下传</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改-1"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#询问-1"><span class="post-toc-number">3.4.4.</span> <span class="post-toc-text">询问</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展"><span class="post-toc-number">4.</span> <span class="post-toc-text"> 扩展 </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#可持久化线段树和主席树（函数式线段树）"><span class="post-toc-number">4.1.</span> <span class="post-toc-text"> 可持久化线段树和主席树（函数式线段树） </span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#预处理-2"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">预处理</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#修改-2"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">修改</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#询问-2"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">询问</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#线段树合并"><span class="post-toc-number">4.2.</span> <span class="post-toc-text"> 线段树合并 </span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#线段树分裂"><span class="post-toc-number">4.3.</span> <span class="post-toc-text"> 线段树分裂 </span></a></li></ol></li></ol>
     </ul>
     
 
@@ -387,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                BZOJ2463
+                线段树
             </p>
         </div>
 
@@ -406,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>tkandi</strong>
-        <span>9月 23, 2017</span>
+        <span>10月 23, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -428,7 +428,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/09/23/BZOJ2463/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/10/23/线段树/">
     
 </ul>
 
@@ -442,7 +442,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/game/">博弈</a>
+        <a class="post_tag-link" href="/tags/segment-tree/">线段树</a>
     </ul>
     
 
@@ -457,7 +457,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2017/09/23/BZOJ2463/" class="leancloud-views_num" data-flag-title="BZOJ2463">
+                <span id="/2017/10/23/线段树/" class="leancloud-views_num" data-flag-title="线段树">
      &nbsp;浏览量
 </span>
 
@@ -469,7 +469,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=BZOJ2463&url=http://tkandi.github.io/2017/09/23/BZOJ2463/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=线段树&url=http://tkandi.github.io/2017/10/23/线段树/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -490,7 +490,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=BZOJ2463&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/09/23/BZOJ2463/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=线段树&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/10/23/线段树/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -509,48 +509,327 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="2463-中山市选2009-谁能赢呢？"><a href="#2463-中山市选2009-谁能赢呢？" class="headerlink" title="2463: [中山市选2009]谁能赢呢？"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2463" target="_blank" rel="external">2463: [中山市选2009]谁能赢呢？</a></h1><p><center> Time Limit: 10 Sec  Memory Limit: 128 MB</center></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
-<p>小明和小红经常玩一个博弈游戏。给定一个$n \times n$的棋盘，一个石头被放在棋盘的左上角。他们轮流移动石头。每一回合，选手只能把石头向上，下，左，右四个方向移动一格，并且要求移动到的格子之前不能被访问过。谁不能移动石头了就算输。假如小明先移动石头，而且两个选手都以最优策略走步，问最后谁能赢？</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title=" 前言 "></a><strong> 前言 </strong></h3><p>假如你有一个数组$a$，现要多次询问区间和$\sum_{i=l}^r{a_i}$。<br>如果是不带修改的，那么可以前缀和，$sum_i = \sum_{j = 1}^i{a_j}$，那么$\sum_{i = l}^r{a_i} = sum_r - sum_{l - 1}$。这是预处理$O(n)$，单次询问$O(1)$。<br>那么如果要支持修改呢？显然是不能用前缀和了。<br>这里给出一种思想，就是在询问之前对数组进行一些预处理，且是对任意询问是有用的，以来降低后面单个询问的复杂度。前面的前缀和其实就是这种思想简单的一种。</p>
+<p><br><br></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title=" 简介 "></a><strong> 简介 </strong></h3><p>这里介绍一种新的数据结构——线段树。<br><strong> 线段树（segment tree）</strong> 作为一种高级数据结构，其思想基础且简单。<br>线段树主要运用了二分思想。<br>以询问区间和为例，对于一个区间$[l, r]$，把它分成左右两段$[l, m]$和$[m + 1, r] \  (m = (l + r) &gt;&gt; 1)$，那么$\sum_{i = l}^r{a_i} = \sum_{i = l}^m{a_i} + \sum_{i = m + 1}^r{a_i}$。如果已经知道了这两个子区间的和，那么就可以求出这整个区间的和。至于如何知道这两个子区间的和，我们发现这个问题与原来的问题相当，只需要继续递归做就可以了。直到区间内只有一个元素，那么这个区间的和就是这个元素的值。仔细观察，我们如果把每个区间看做一个点，那么每个点最多有两个子节点，这是一棵二叉树，而且树的深度为$O(log_{2}n)$。且这不一棵是满二叉树，假设它是满二叉树，根据二叉树的性质，深度为$O(log_{2}n)$的满二叉树的节点数是$O(n)$的，所以线段树的节点数也是$O(n)$的。</p>
+<p><br><br></p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title=" 基本操作 "></a><strong> 基本操作 </strong></h3><h4 id="存储"><a href="#存储" class="headerlink" title=" 存储 "></a><strong> 存储 </strong></h4><p>线段树的存储有多种实现方法。</p>
+<h5 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h5><p>对于每个节点，要记录它的所代表的区间的左端点和右端点，以及这个区间的信息。</p>
+<pre><code class="lang-cpp">struct Segment_Tree_Node {
+    Segment_Tree_Node(int l = 0, int r = 0) : l(l), r(r) {
+        x = Info();
+        return;
+    }
+    int l, r;
+    Info x;
+};
+</code></pre>
+<p>当前点是$k$，那么它的左子节点（如果有）就是$k &lt;&lt; 1$，它的右子节点（如果有）就是$k &lt;&lt; 1 | 1$，它的父亲节点（如果有）就是$k &gt;&gt; 1$。可以证明用到节点的最大编号是小于或等于$4 \times n$的。具体证明，待填坑。。。</p>
+<h5 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h5><pre><code class="lang-cpp">struct Segment_Tree_Node {
+    Segment_Tree_Node(int l = 0, int r = 0) : l(l), r(r) {
+        lc = rc = NULL;
+        x = Info();
+        return;
+    }
+    int l, r;
+    Segment_Tree_Node *lc, *rc;
+    Info x;
+};
+</code></pre>
+<p>指针有两种实现方法：</p>
+<ul>
+<li>内存动态分配，动态释放。</li>
+<li>先开一个内存池，往后用到不断分配，也可以用数组模拟。</li>
+</ul>
+<p>线段树一共有$2 \times n$个节点，每个节点除了用完全二叉树存储的要记录的以外，还要记录它左右子节点的指针。</p>
+<h5 id="动态开点"><a href="#动态开点" class="headerlink" title="动态开点"></a>动态开点</h5><p>对于一个修改或询问，与它有关的节点数为$O(log_{2}n)$，所以不用把所有的节点都开出来，一个节点只有被用到时才会开。空间复杂度一般为$O(mlog_{2}n)$，所以当$n$到达$10^9$或更大时也能做。</p>
+<p>后文中未明确说明，一般用完全二叉树结构存储。</p>
+<p><br><br></p>
+<h4 id="单点修改-amp-amp-区间查询"><a href="#单点修改-amp-amp-区间查询" class="headerlink" title=" 单点修改 &amp;&amp; 区间查询 "></a><strong> 单点修改 &amp;&amp; 区间查询 </strong></h4><blockquote>
+<p>每次有两种操作：1. 把一个元素加上一个数；2. 询问区间和。</p>
 </blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
-<p>输入文件有多组数据。</p>
-<p>输入第一行包含一个整数$n$，表示棋盘的规模。</p>
-<p>当输入$n$为$0$时，表示输入结束。</p>
-</blockquote>
-<h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
-<p>对于每组数据，如果小明最后能赢，则输出 “Alice”, 否则输出 “Bob”, 每一组答案独占一行。</p>
-</blockquote>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title=" Sample Input "></a><strong> Sample Input </strong></h2><blockquote>
-<p>2<br>0</p>
-</blockquote>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title=" Sample Output "></a><strong> Sample Output </strong></h2><blockquote>
-<p>Alice</p>
-</blockquote>
-<h2 id="HINT"><a href="#HINT" class="headerlink" title=" HINT "></a><strong> HINT </strong></h2><blockquote>
-<p>对于所有的数据，保证$1 &lt;= n &lt;= 10000$。</p>
-</blockquote>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
-<p>当$n$为偶数，棋盘一定能被$1 \times 2$的骨牌覆盖，所以我们先对棋盘进行覆盖，Alice 移动的每一步为原位置所在骨牌的另一块，Bob 则必须选择新的一块骨牌，所以最后一定是 Bob 找不到一块新的骨牌。Alice 必胜。</p>
-<p>当$n$为奇数，棋盘上除去起点的点一定能被$1 \times 2$的骨牌覆盖，所以我们先对棋盘进行覆盖，Alice 每次进入一块新的骨牌，Bob 移动的每一步为原位置所在骨牌的另一块，所以最后一定是 Alice 找不到一块新的骨牌。Bob 必胜。</p>
-</blockquote>
-<h2 id="Standard"><a href="#Standard" class="headerlink" title=" Standard "></a><strong> Standard </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
+<p><a href="https://www.luogu.org/problemnew/show/3374" target="_blank" rel="external">模板题目链接</a></p>
+<h5 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h5><p>记录下当前节点的所代表的区间的左端点和右端点，以及这个区间的信息（像这个例子，询问区间和就记录这个节点所代表的区间的和）。<br>若某个节点所代表的区间只有一个元素，那么这个区间的信息就由该元素算出。否则，它就有左右子节点，递归算出它们的信息，该节点的信息就由它们算出。<br>到这里预处理就结束了。</p>
+<pre><code class="lang-cpp">#define lc k &lt;&lt; 1
+#define rc k &lt;&lt; 1 | 1
 
-using namespace std;
+const int N = 100010;
 
 int n;
+int a[N];
 
-int main() {
-    while (scanf(&quot;%d&quot;, &amp;n) == 1 &amp;&amp; n) {
-        if (n &amp; 1) puts(&quot;Bob&quot;);
-        else puts(&quot;Alice&quot;);
+struct Node {
+    int l, r, sum;
+} p[N &lt;&lt; 2];
+
+void Build(int k, int l, int r) {
+    p[k].l = l;
+    p[k].r = r;
+    if (l == r) {
+        p[k].sum = a[l];
+        return;
+    }
+    int m = (l + r) &gt;&gt; 1;
+    Build(lc, l, m);
+    Build(rc, m + 1, r);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h5><p>在当前节点所代表的区间修改在$x$位置上的元素加上$d$。<br>若当前节点是叶子节点，那么该节点肯定是$x$，把该节点的信息对$d$修改。<br>否则，若它在当前节点左子节点所代表的区间内，递归修改左子节点，否则递归修改右子节点，修改完后更新当前节点的信息。<br>由于线段树的深度为$O(log_{2}n)$，所以从根节点到某叶子节点的距离为$O(log_{2}n)$，所以时间复杂度为$O(log_{2}n)$。</p>
+<pre><code class="lang-cpp">void Modify(int k, int x, int d) {
+    if (p[k].l == x &amp;&amp; x == p[k].r) {
+        p[k].sum += d;
+        return;
+    }
+    if (x &lt;= p[lc].r) Modify(lc, x, d);
+    else Modify(rc, x, d);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="询问"><a href="#询问" class="headerlink" title="询问"></a>询问</h5><p>在当前节点所代表的区间内询问在区间$[l, r]$中的元素的和。<br>若当前节点所代表的区间是区间$[l, r]$的一个子区间，那么直接返回当前节点所记录的和。<br>否则若区间$[l, r]$与当前节点左子节点所代表的区间有交集，那么答案加上递归询问左子节点的和，若区间$[l, r]$与当前节点右子节点所代表的区间有交集，那么答案加上递归询问右子节点的和。最后的总和就是答案。<br>一个区间最多被划分成线段树上的$O(log_{2}n)$个节点，所以单次询问的时间复杂度为$O(log_{2}n)$。具体证明，待填坑。。。</p>
+<pre><code class="lang-cpp">int Query(int k, int l, int r) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) return p[k].sum;
+    int sum = 0;
+    if (l &lt;= p[lc].r) sum += Query(lc, l, r);
+    if (p[rc].l &lt;= r) sum += Query(rc, l, r);
+    return sum;
+}
+</code></pre>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%d&quot;, &amp;a[i]);
+    Build(1, 1, n);
+    while (m--) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (t == 1) {
+            int x, d;
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;d);
+            Modify(1, x, d);
+        } else {
+            int l, r;
+            scanf(&quot;%d%d&quot;, &amp;l, &amp;r);
+            printf(&quot;%d\n&quot;, Query(1, l, r));
+        }
     }
     return 0;
 }
 </code></pre>
+<p><br><br></p>
+<h4 id="区间修改-amp-amp-单点查询"><a href="#区间修改-amp-amp-单点查询" class="headerlink" title=" 区间修改 &amp;&amp; 单点查询 "></a><strong> 区间修改 &amp;&amp; 单点查询 </strong></h4><blockquote>
+<p>每次有两种操作：1. 把一个区间加上一个数；2. 询问一个元素的和。</p>
+</blockquote>
+<p><a href="https://www.luogu.org/problemnew/show/3368" target="_blank" rel="external">模板题目链接</a></p>
+<p>这种被介绍在树状数组中或许更好一点。<br>把原序列$a$差分成序列$b$，对于每一个修改操作$(l, r, x)$，把它转成两个操作，在差分数组的第$l$个元素上加上$x$，在差分数组的第$r + 1$个元素上加上$-x$。这样，如果要求原序列第$x$个元素的值，那么就是差分数组的前$x$个元素的和$\sum_{i = 1}^x{b_i}$。这样就把(区间修改 &amp;&amp; 单点查询)转化成(单点修改 &amp;&amp; 区间查询)了。</p>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i) {
+        scanf(&quot;%d&quot;, &amp;b[i]);
+        a[i] = b[i] - b[i - 1];
+    }
+    Build(1, 1, n);
+    while (m--) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (t == 1) {
+            int l, r, d;
+            scanf(&quot;%d%d%d&quot;, &amp;l, &amp;r, &amp;d);
+            Modify(1, l, d);
+            if (r &lt; n) Modify(1, r + 1, -d);
+        } else {
+            int x;
+            scanf(&quot;%d&quot;, &amp;x);
+            printf(&quot;%d\n&quot;, Query(1, 1, x));
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p><br><br></p>
+<h4 id="区间修改-amp-amp-区间查询"><a href="#区间修改-amp-amp-区间查询" class="headerlink" title=" 区间修改 &amp;&amp; 区间查询 "></a><strong> 区间修改 &amp;&amp; 区间查询 </strong></h4><blockquote>
+<p>每次有两种操作：1. 把一个区间加上一个数；2. 询问区间和。</p>
+</blockquote>
+<p><a href="https://www.luogu.org/problemnew/show/3372" target="_blank" rel="external">模板题目链接</a></p>
+<p>这里介绍一种 <strong> Lazy-Tag </strong> 思想。<br>在每个节点记录一个标记$lazy$，代表这个区间还没有下传的标记。例如，在区间加一个数中，记录的就是这个区间的所有子区间还要加的数的总和。</p>
+<h5 id="预处理-1"><a href="#预处理-1" class="headerlink" title="预处理"></a>预处理</h5><p>增加对每个节点$lazy$标记的预处理。</p>
+<pre><code class="lang-cpp">#define lc k &lt;&lt; 1
+#define rc k &lt;&lt; 1 | 1
 
+typedef long long LL;
+
+const int N = 100010;
+
+int n;
+LL a[N];
+
+struct Node {
+    int l, r;
+    LL sum, lazy;
+} p[N &lt;&lt; 2];
+
+void Build(int k, int l, int r) {
+    p[k].l = l;
+    p[k].r = r;
+    if (l == r) {
+        p[k].sum = a[l];
+        p[k].lazy = 0;
+        return;
+    }
+    int m = (l + r) &gt;&gt; 1;
+    Build(lc, l, m);
+    Build(rc, m + 1, r);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="标记下传"><a href="#标记下传" class="headerlink" title="标记下传"></a>标记下传</h5><p>把节点$k$的标记下传。<br>左子节点的和加上左子节点所代表的区间所含的元素个数$\times$当前节点的标记。左子节点的标记加上当前节点的标记。<br>右子节点的和加上右子节点所代表的区间所含的元素个数$\times$当前节点的标记。右子节点的标记加上当前节点的标记。<br>不要忘了把当前节点的标记清零。</p>
+<pre><code class="lang-cpp">inline void Pushdown(int k) {
+    p[lc].sum += p[k].lazy * (p[lc].r - p[lc].l + 1);
+    p[lc].lazy += p[k].lazy;
+    p[rc].sum += p[k].lazy * (p[rc].r - p[rc].l + 1);
+    p[rc].lazy += p[k].lazy;
+    p[k].lazy = 0;
+    return;
+}
+</code></pre>
+<h5 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h5><p>在当前节点所代表的区间内将在区间$[l, r]$中的元素的加上$d$。<br>若当前节点所代表的区间是区间$[l, r]$的一个子区间，那么当前节点的和加上$d \times$当前区间的元素个数，$lazy$标记加上$d$。<br>否则下传当前节点的标记。若区间$[l, r]$与当前节点左子节点所代表的区间有交集，那么对左子节点进行修改，若区间$[l, r]$与当前节点右子节点所代表的区间有交集，那么对右子节点进行修改，修改完后更新当前节点的信息。</p>
+<pre><code class="lang-cpp">void Modify(int k, int l, int r, LL d) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) {
+        p[k].sum += d * (p[k].r - p[k].l + 1);
+        p[k].lazy += d;
+        return;
+    }
+    if (p[k].lazy) Pushdown(k);
+    if (l &lt;= p[lc].r) Modify(lc, l, r, d);
+    if (p[rc].l &lt;= r) Modify(rc, l, r, d);
+    p[k].sum = p[lc].sum + p[rc].sum;
+    return;
+}
+</code></pre>
+<h5 id="询问-1"><a href="#询问-1" class="headerlink" title="询问"></a>询问</h5><p>在当前节点所代表的区间内询问在区间$[l, r]$中的元素的和。<br>若当前节点所代表的区间是区间$[l, r]$的一个子区间，那么直接返回当前节点所记录的和。<br>否则下传当前节点的标记。若区间$[l, r]$与当前节点左子节点所代表的区间有交集，那么答案加上递归询问左子节点的和，若区间$[l, r]$与当前节点右子节点所代表的区间有交集，那么答案加上递归询问右子节点的和。最后的总和就是答案。</p>
+<pre><code class="lang-cpp">LL Query(int k, int l, int r) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) return p[k].sum;
+    if (p[k].lazy) Pushdown(k);
+    LL sum = 0;
+    if (l &lt;= p[lc].r) sum += Query(lc, l, r);
+    if (p[rc].l &lt;= r) sum += Query(rc, l, r);
+    return sum;
+}
+</code></pre>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%lld&quot;, &amp;a[i]);
+    Build(1, 1, n);
+    while (m--) {
+        int t, l, r;
+        scanf(&quot;%d%d%d&quot;, &amp;t, &amp;l, &amp;r);
+        if (t == 1) {
+            LL d;
+            scanf(&quot;%lld&quot;, &amp;d);
+            Modify(1, l, r, d);
+        } else printf(&quot;%lld\n&quot;, Query(1, l, r));
+    }
+    return 0;
+}
+</code></pre>
+<p>$Pushdown$是$O(1)$的，所以$lazy-tag$并不会影响复杂度。</p>
+<p><br>&lt;/br&gt;<br><br><br></p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title=" 扩展 "></a><strong> 扩展 </strong></h3><h4 id="可持久化线段树和主席树（函数式线段树）"><a href="#可持久化线段树和主席树（函数式线段树）" class="headerlink" title=" 可持久化线段树和主席树（函数式线段树） "></a><strong> 可持久化线段树和主席树（函数式线段树） </strong></h4><p><strong> 可持久化线段树 </strong> 就是线段树的可持久化。它有一个最初的版本，每次可在在某个版本的基础上修改并新增一个版本，且需要支持查询历史版本。</p>
+<p>如果每次复制原来的线段树，再在新的线段树上修改，时间和空间复杂度都会到达$O(n \times m)$。这样高的复杂度是无法承受的。<br>我们观察后发现，线段树每次修改，只会修改线段树上$O(log_{2}n)$个节点，我们只需要新建这$O(log_{2}n)$个节点，其它的节点我们可以共用。这里就要用到动态开点了。这样时间复杂度和空间复杂度都降为$O((n + m)log_{2}n)$。</p>
+<p><a href="http://cogs.pro:8080/cogs/problem/problem.php?pid=2554" target="_blank" rel="external">模板题目链接</a></p>
+<h5 id="预处理-2"><a href="#预处理-2" class="headerlink" title="预处理"></a>预处理</h5><p>现在是动态开点的，所以要开一个节点的内存池。节点信息中要加上左右子节点的指针（可以用数组模拟）。</p>
+<pre><code class="lang-cpp">const int N = 100010, M = 100010, P = 17, _INF = 0x80000000;
+
+int n, m;
+int a[N];
+
+int tot = 0, root[M];
+struct Node {
+    int lc, rc, l, r, Max;
+} p[(N &lt;&lt; 2) + M * P];
+
+int Build(int l, int r) {
+    int k = ++tot;
+    p[k].l = l;
+    p[k].r = r;
+    if (l == r) {
+        p[k].Max = a[l];
+        return k;
+    }
+    int m = (l + r) &gt;&gt; 1;
+    p[k].lc = Build(l, m);
+    p[k].rc = Build(m + 1, r);
+    p[k].Max = max(p[p[k].lc].Max, p[p[k].rc].Max);
+    return k;
+}
+</code></pre>
+<h5 id="修改-2"><a href="#修改-2" class="headerlink" title="修改"></a>修改</h5><p>对于所有要修改的节点，再新建一个（从内存池中分配一个），对其进行修改。</p>
+<pre><code class="lang-cpp">int Modify(int k, int x, int d) {
+    int K = ++tot;
+    p[K] = p[k];
+    if (p[k].l == x &amp;&amp; x == p[k].r) {
+        p[K].Max = d;
+        return K;
+    }
+    if (x &lt;= p[p[k].lc].r) p[K].lc = Modify(p[k].lc, x, d);
+    else p[K].rc = Modify(p[k].rc, x, d);
+    p[K].Max = max(p[p[K].lc].Max, p[p[K].rc].Max);
+    return K;
+}
+</code></pre>
+<h5 id="询问-2"><a href="#询问-2" class="headerlink" title="询问"></a>询问</h5><p>询问其实变化不大。</p>
+<pre><code class="lang-cpp">int Query(int k, int l, int r) {
+    if (l &lt;= p[k].l &amp;&amp; p[k].r &lt;= r) return p[k].Max;
+    int Max = _INF;
+    if (l &lt;= p[p[k].lc].r) Max = max(Max, Query(p[k].lc, l, r));
+    if (p[p[k].rc].l &lt;= r) Max = max(Max, Query(p[k].rc, l, r));
+    return Max;
+}
+</code></pre>
+<p>以下是主程序：</p>
+<pre><code class="lang-cpp">int main() {
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i)
+        scanf(&quot;%d&quot;, &amp;a[i]);
+    int cnt = 0;
+    root[cnt = 1] = Build(1, n);
+    while (m--) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (!t) {
+            int k, l, r;
+            scanf(&quot;%d%d%d&quot;, &amp;k, &amp;l, &amp;r);
+            printf(&quot;%d\n&quot;, Query(root[k], l, r));
+        } else {
+            int k, x, d;
+            scanf(&quot;%d%d%d&quot;, &amp;k, &amp;x, &amp;d);
+            root[++cnt] = Modify(root[k], x, d);
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p><br><br></p>
+<h4 id="线段树合并"><a href="#线段树合并" class="headerlink" title=" 线段树合并 "></a><strong> 线段树合并 </strong></h4><p>将两棵线段树合并成一棵新的线段树。</p>
+<pre><code class="lang-cpp">int Merge(int k1, int k2) {
+    if (!k1) return k2;
+    if (!k2) return k1;
+    int k = ++tot;
+    p[k].lc = Merge(p[k1].lc, p[k2].lc);
+    p[k].rc = Merge(p[k1].rc, p[k2].rc);
+    p[k].sum = p[p[k].lc].sum + p[p[k].rc].sum;
+    return k;
+}
+</code></pre>
+<p>开始时你有$n$棵线段树，每棵线段树都有一个节点，现在你不断把它们合并，直到只有一棵线段树，这个总的时间复杂度是$O(nlog_{2}n)$的。因为你每次合并都会使某些区间上所含的点变多，那么总复杂度即为线段树上所有节点所包含的元素数之和，线段树一共有$O(log_{2}n)$层，每层都有$O(n)$个节点，所以一共有$O(nlog_{2}n)$个节点，所以时间复杂度也是这个。</p>
+<h4 id="线段树分裂"><a href="#线段树分裂" class="headerlink" title=" 线段树分裂 "></a><strong> 线段树分裂 </strong></h4>
         
     
 
@@ -586,7 +865,7 @@ int main() {
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/25/BZOJ1968/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/10/26/BZOJ3709/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -600,7 +879,7 @@ int main() {
 
     <!-- Next Nav -->
     
-        <a href="/2017/09/23/Hello World!/" id="post_nav-older" class="next-content">
+        <a href="/2017/10/22/CodeForces555E/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

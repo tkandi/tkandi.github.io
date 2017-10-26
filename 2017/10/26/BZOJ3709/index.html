@@ -39,7 +39,7 @@
     
     <title>
         
-            BZOJ2463 | 
+            BZOJ3709 | 
         
         tkandi&#39;s blog
     </title>
@@ -51,7 +51,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="tkandi">
     <meta name="description" itemprop="description" content="tkandi&#39;s blog">
-    <meta name="keywords" content=",博弈">
+    <meta name="keywords" content=",贪心">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -237,18 +237,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://tkandi.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="BZOJ2463 | tkandi&#39;s blog">
+    <meta property="og:title" content="BZOJ3709 | tkandi&#39;s blog">
     <meta property="og:image" content="http://tkandi.github.io/img/favicon.ico" />
     <meta property="og:description" content="tkandi&#39;s blog">
-    <meta property="og:article:tag" content="博弈"> 
+    <meta property="og:article:tag" content="贪心"> 
 
     
-        <meta property="article:published_time" content="Sat Sep 23 2017 15:15:00 GMT+0800" />
-        <meta property="article:modified_time" content="Wed Oct 18 2017 19:59:15 GMT+0800" />
+        <meta property="article:published_time" content="Thu Oct 26 2017 21:00:00 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Oct 26 2017 21:46:03 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="BZOJ2463 | tkandi&#39;s blog">
+    <meta name="twitter:title" content="BZOJ3709 | tkandi&#39;s blog">
     <meta name="twitter:description" content="tkandi&#39;s blog">
     <meta name="twitter:image" content="http://tkandi.github.io/img/favicon.ico">
     <meta name="twitter:card" content="summary_large_image" />
@@ -256,7 +256,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://tkandi.github.io/2017/09/23/BZOJ2463/index.html" />
+        <link rel="canonical" href="http://tkandi.github.io/2017/10/26/BZOJ3709/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -268,10 +268,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://tkandi.github.io/2017/09/23/BZOJ2463/index.html",
-    "headline": "BZOJ2463",
-    "datePublished": "Sat Sep 23 2017 15:15:00 GMT+0800",
-    "dateModified": "Wed Oct 18 2017 19:59:15 GMT+0800",
+    "mainEntityOfPage": "http://tkandi.github.io/2017/10/26/BZOJ3709/index.html",
+    "headline": "BZOJ3709",
+    "datePublished": "Thu Oct 26 2017 21:00:00 GMT+0800",
+    "dateModified": "Thu Oct 26 2017 21:46:03 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tkandi",
@@ -289,7 +289,7 @@
             "url": "/img/favicon.ico"
         }
     },
-    "keywords": ",博弈",
+    "keywords": ",贪心",
     "description": "tkandi&#39;s blog",
 }
 </script>
@@ -355,7 +355,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2463-中山市选2009-谁能赢呢？"><span class="post-toc-number">1.</span> <span class="post-toc-text">2463: [中山市选2009]谁能赢呢？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> Description </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> Sample Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> Sample Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HINT"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> HINT </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> Solution </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Standard"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> Standard </span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PA2014-Bohater"><span class="post-toc-number">1.</span> <span class="post-toc-text">[PA2014]Bohater</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> Description </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-number">1.3.</span> <span class="post-toc-text"> Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-number">1.4.</span> <span class="post-toc-text"> Sample Input </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-number">1.5.</span> <span class="post-toc-text"> Sample Output </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HINT"><span class="post-toc-number">1.6.</span> <span class="post-toc-text"> HINT </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">1.7.</span> <span class="post-toc-text"> Solution </span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Standard"><span class="post-toc-number">1.8.</span> <span class="post-toc-text"> Standard </span></a></li></ol></li></ol>
     </ul>
     
 
@@ -387,7 +387,7 @@
         
     
             <p class="article-headline-p">
-                BZOJ2463
+                BZOJ3709
             </p>
         </div>
 
@@ -406,7 +406,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>tkandi</strong>
-        <span>9月 23, 2017</span>
+        <span>10月 26, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -428,7 +428,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/09/23/BZOJ2463/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://tkandi.github.io/2017/10/26/BZOJ3709/">
     
 </ul>
 
@@ -442,7 +442,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/game/">博弈</a>
+        <a class="post_tag-link" href="/tags/greedy/">贪心</a>
     </ul>
     
 
@@ -457,7 +457,7 @@
     <!-- Leancloud Views -->
         <a class="post_share-link" href="#">
             <li class="mdl-menu__item">
-                <span id="/2017/09/23/BZOJ2463/" class="leancloud-views_num" data-flag-title="BZOJ2463">
+                <span id="/2017/10/26/BZOJ3709/" class="leancloud-views_num" data-flag-title="BZOJ3709">
      &nbsp;浏览量
 </span>
 
@@ -469,7 +469,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=BZOJ2463&url=http://tkandi.github.io/2017/09/23/BZOJ2463/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=BZOJ3709&url=http://tkandi.github.io/2017/10/26/BZOJ3709/index.html&pic=http://tkandi.github.io/img/favicon.ico&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -490,7 +490,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=BZOJ2463&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/09/23/BZOJ2463/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=tkandi&#39;s blog&title=BZOJ3709&summary=tkandi&#39;s blog&pics=http://tkandi.github.io/img/favicon.ico&url=http://tkandi.github.io/2017/10/26/BZOJ3709/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -509,44 +509,78 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="2463-中山市选2009-谁能赢呢？"><a href="#2463-中山市选2009-谁能赢呢？" class="headerlink" title="2463: [中山市选2009]谁能赢呢？"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2463" target="_blank" rel="external">2463: [中山市选2009]谁能赢呢？</a></h1><p><center> Time Limit: 10 Sec  Memory Limit: 128 MB</center></p>
+        <h1 id="PA2014-Bohater"><a href="#PA2014-Bohater" class="headerlink" title="[PA2014]Bohater"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3709" target="_blank" rel="external">[PA2014]Bohater</a></h1><p><center> Time Limit: 5 Sec  Memory Limit: 128 MB  Special Judge</center></p>
 <h2 id="Description"><a href="#Description" class="headerlink" title=" Description "></a><strong> Description </strong></h2><blockquote>
-<p>小明和小红经常玩一个博弈游戏。给定一个$n \times n$的棋盘，一个石头被放在棋盘的左上角。他们轮流移动石头。每一回合，选手只能把石头向上，下，左，右四个方向移动一格，并且要求移动到的格子之前不能被访问过。谁不能移动石头了就算输。假如小明先移动石头，而且两个选手都以最优策略走步，问最后谁能赢？</p>
+<p>在一款电脑游戏中，你需要打败$n$只怪物（从$1$到$n$编号）。为了打败第$i$只怪物，你需要消耗$d_i$点生命值，但怪物死后会掉落血药，使你恢复$a_i$点生命值。任何时候你的生命值都不能降到$0$（或$0$以下）。请问是否存在一种打怪顺序，使得你可以打完这$n$只怪物而不死掉。</p>
 </blockquote>
 <h2 id="Input"><a href="#Input" class="headerlink" title=" Input "></a><strong> Input </strong></h2><blockquote>
-<p>输入文件有多组数据。</p>
-<p>输入第一行包含一个整数$n$，表示棋盘的规模。</p>
-<p>当输入$n$为$0$时，表示输入结束。</p>
+<p>第一行两个整数$n,z$($1 \le n,z \le 100000$)，分别表示怪物的数量和你的初始生命值。<br>接下来$n$行，每行两个整数$d_i,a_i$($0 \le d_i,a_i \le 100000$)。</p>
 </blockquote>
 <h2 id="Output"><a href="#Output" class="headerlink" title=" Output "></a><strong> Output </strong></h2><blockquote>
-<p>对于每组数据，如果小明最后能赢，则输出 “Alice”, 否则输出 “Bob”, 每一组答案独占一行。</p>
+<p>第一行为$TAK$（是）或$NIE$（否），表示是否存在这样的顺序。<br>如果第一行为$TAK$，则第二行为空格隔开的$1~n$的排列，表示合法的顺序。如果答案有很多，你可以输出其中任意一个。</p>
 </blockquote>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title=" Sample Input "></a><strong> Sample Input </strong></h2><blockquote>
-<p>2<br>0</p>
+<p>3 5<br>3 1<br>4 8<br>8 3</p>
 </blockquote>
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title=" Sample Output "></a><strong> Sample Output </strong></h2><blockquote>
-<p>Alice</p>
+<p>TAK<br>2 3 1</p>
 </blockquote>
-<h2 id="HINT"><a href="#HINT" class="headerlink" title=" HINT "></a><strong> HINT </strong></h2><blockquote>
-<p>对于所有的数据，保证$1 &lt;= n &lt;= 10000$。</p>
-</blockquote>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
-<p>当$n$为偶数，棋盘一定能被$1 \times 2$的骨牌覆盖，所以我们先对棋盘进行覆盖，Alice 移动的每一步为原位置所在骨牌的另一块，Bob 则必须选择新的一块骨牌，所以最后一定是 Bob 找不到一块新的骨牌。Alice 必胜。</p>
-<p>当$n$为奇数，棋盘上除去起点的点一定能被$1 \times 2$的骨牌覆盖，所以我们先对棋盘进行覆盖，Alice 每次进入一块新的骨牌，Bob 移动的每一步为原位置所在骨牌的另一块，所以最后一定是 Alice 找不到一块新的骨牌。Bob 必胜。</p>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title=" HINT "></a><strong> HINT </strong></h2><h2 id="Solution"><a href="#Solution" class="headerlink" title=" Solution "></a><strong> Solution </strong></h2><blockquote>
+<p>把怪物分成两种，一种是$d_i \le a_i$，另一种$d_i \gt a_i$。<br>对于第一种，我们按$d_i$从小到大打，若某个怪兽打不掉了，那么不存在方案。这种贪心的正确性显而易见。<br>对于第二种，我们按$a_i$从大到小打，若某个怪兽打不掉了，那么不存在方案。那么我来证明一下这个的正确性。我们知道，打完所有的怪兽后的生命值是固定的，那么我们考虑从最后的生命值反着退回来，那么此时的就是先减去$a_i$，再加上$d_i$，如此下去。此时$a_i \lt d_i$，这么倒着做是不是与第一种情况一样？所以我们倒着按$a_i$从小到大做，就相当于正着按$a_i$从大到小做。</p>
 </blockquote>
 <h2 id="Standard"><a href="#Standard" class="headerlink" title=" Standard "></a><strong> Standard </strong></h2><pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
 
 using namespace std;
 
+typedef long long LL;
+
+const int N = 100010;
+
 int n;
+LL rest;
+int a[N], b[N];
+vector&lt;int&gt; ge, le;
+
+bool Cmp1(int x, int y) {
+    return a[x] &lt; a[y];
+}
+bool Cmp2(int x, int y) {
+    return b[x] &gt; b[y];
+}
 
 int main() {
-    while (scanf(&quot;%d&quot;, &amp;n) == 1 &amp;&amp; n) {
-        if (n &amp; 1) puts(&quot;Bob&quot;);
-        else puts(&quot;Alice&quot;);
+    scanf(&quot;%d%lld&quot;, &amp;n, &amp;rest);
+    for (int i = 1; i &lt;= n; ++i) {
+        scanf(&quot;%d%d&quot;, &amp;a[i], &amp;b[i]);
+        if (a[i] &lt;= b[i]) ge.push_back(i);
+        else le.push_back(i);
     }
+    sort(ge.begin(), ge.end(), Cmp1);
+    sort(le.begin(), le.end(), Cmp2);
+    for (int i = 0; i &lt; (int)ge.size(); ++i) {
+        if (rest &lt;= a[ge[i]]) {
+            puts(&quot;NIE&quot;);
+            return 0;
+        }
+        rest += -a[ge[i]] + b[ge[i]];
+    }
+    for (int i = 0; i &lt; (int)le.size(); ++i) {
+        if (rest &lt;= a[le[i]]) {
+            puts(&quot;NIE&quot;);
+            return 0;
+        }
+        rest += -a[le[i]] + b[le[i]];
+    }
+    puts(&quot;TAK&quot;);
+    for (int i = 0; i &lt; (int)ge.size(); ++i)
+        printf(&quot;%d &quot;, ge[i]);
+    for (int i = 0; i &lt; (int)le.size(); ++i)
+        printf(&quot;%d &quot;, le[i]);
+    putchar(&#39;\n&#39;);
     return 0;
 }
 </code></pre>
@@ -586,21 +620,13 @@ int main() {
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/25/BZOJ1968/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/09/23/Hello World!/" id="post_nav-older" class="next-content">
+        <a href="/2017/10/23/线段树/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
