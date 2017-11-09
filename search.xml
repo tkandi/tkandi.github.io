@@ -102,7 +102,7 @@ int main() {
 <p>271821169</p>
 </blockquote>
 <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><blockquote>
-<p>问你小于等于$n$的最大的完全平方数。<br>$pow((int)sqrt(n), 2)$。</p>
+<p>问你小于等于$n$的最大的完全平方数。<br>${\lfloor \sqrt{n} \rfloor}^2$。</p>
 </blockquote>
 <pre><code class="lang-cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
@@ -247,7 +247,7 @@ int main() {
 <p>36</p>
 </blockquote>
 <h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><blockquote>
-<p>问你$k$的正整数倍中各个数位数字之和的最小值。<br>比赛中，我没有做出这题，我试了随机化，发现效果很差。比赛后，我想出了一个数位DP，$f[i][j]$代表当前数是$i$位数，$\% k = j$的最小数字和。时间复杂度为$O(k \times 10 \times d)$。$d$为答案的位数，具体答案会多大，我也不知道，反正做个$100$位是不会超时，我觉得最小的答案应该不会超过$100$。后来发现比赛时唯一A掉的就是这么做的。<br>看了题解以后，发现这道题十分高妙。每个自然数都可以从$0$通过$+ 1$和$\times 10$这两个操作得到，前者对数位和贡献$+ 1$，后者数位和不变，且可以在模意义下做，把其转化为图论，有$k$个点，分别为$0 \cdots k - 1$，对于一个点$u$，到$(u + 1) \% k$有一条权为$1$的边，到$u *10 \% k$有一条权为$0$的边。答案即为点$1$到点$0$的最短距离$+ 1$。题解还说明了某一位加到了$10$的情况。假设当前这位为$i$，我们一定可以找到$10^i ≡ 10^j (mod k) \  (i \lt j)$。所以我们可以把第$i$的$1$移到第$j$位，即可以构造出合法方案。</p>
+<p>问你$k$的正整数倍中各个数位数字之和的最小值。<br>比赛中，我没有做出这题，我试了随机化，发现效果很差。比赛后，我想出了一个数位DP，$f[i][j]$代表当前数是$i$位数，$\% k = j$的最小数字和。时间复杂度为$O(k \times 10 \times d)$。$d$为答案的位数，具体答案会多大，我也不知道，反正做个$100$位是不会超时，我觉得最小的答案应该不会超过$100$。后来发现比赛时唯一A掉的就是这么做的。<br>看了题解以后，发现这道题十分高妙。每个自然数都可以从$0$通过$+ 1$和$\times 10$这两个操作得到，前者对数位和贡献$+ 1$，后者数位和不变，且可以在模意义下做，把其转化为图论，有$k$个点，分别为$0 \cdots k - 1$，对于一个点$u$，到$(u + 1) \% k$有一条权为$1$的边，到$u *10 \% k$有一条权为$0$的边。答案即为点$1$到点$0$的最短距离$+ 1$。<br>题解还说明了某一位加到了$10$的情况。假设当前这位为$i$，我们一定可以找到$10^i ≡ 10^j (mod \  k) \  (i \lt j)$。所以我们可以把第$i$的$1$移到第$j$位，即可以构造出合法方案。<br>关于最短路，直接跑堆优化的Dijkstra时间复杂度是$O(klog_2k)$，我们考虑这张图的边权为$0$或$1$，可以使用01-BFS（堆优化Dijkstra的优先队列换成双关队列。向队列中加入新点时，通过权为$0$的边更新的点放在队首，通过权为$1$的边更新的点放在队尾）。时间复杂度为$O(k)$，这是相当优秀的复杂度了。</p>
 </blockquote>
 ]]></content>
       
@@ -9209,6 +9209,12 @@ int main() {
   
     
     <entry>
+      <title><![CDATA[Gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[About]]></title>
       <url>/about/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -9221,20 +9227,21 @@ int main() {
     </entry>
     
     <entry>
-      <title><![CDATA[Gallery]]></title>
-      <url>/gallery/index.html</url>
+      <title><![CDATA[Game]]></title>
+      <url>/game/index.html</url>
+      <content type="html"><![CDATA[<p><a href="/game/2048/index.html" target="_blank" style="text-decoration:none"> <font size="18px" color="#776e65"> 2048 </font> </a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title><![CDATA[Links]]></title>
       <url>/links/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Tags]]></title>
-      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
