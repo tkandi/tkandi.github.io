@@ -1,0 +1,129 @@
+<h3 id="中文介绍"><a href="#中文介绍" class="headerlink" title="中文介绍"></a>中文介绍</h3><p>请查看 <a href="https://github.com/binaryify/vue-tetris/blob/master/README.md">README.md</a></p>
+<hr>
+<h2 id="Use-Vue-Vuex-Immutable-to-code-Tetris"><a href="#Use-Vue-Vuex-Immutable-to-code-Tetris" class="headerlink" title="Use Vue, Vuex, Immutable to code Tetris."></a>Use Vue, Vuex, Immutable to code Tetris.</h2><p>Inspired by <a href="https://github.com/chvin/react-tetris">react-tetris</a>, cause I prefer Vue to React, so I use Vue to code it, my idea is to think of components and methods as functions, to ensure that an input (props/params) gets a determined output (view/return value), and use Vuex instead of Redux.</p>
+<p>Open <a href="http://binaryify.github.io/vue-tetris/">http://binaryify.github.io/vue-tetris/</a>  to play!</p>
+<h3 id="Responsive"><a href="#Responsive" class="headerlink" title="Responsive"></a>Responsive</h3><p><img src="https://img.alicdn.com/tps/TB1AdjZNXXXXXcCapXXXXXXXXXX-480-343.gif" alt="Responsive"></p>
+<p>Not only refers to the screen adaptation, <code>but the change of input depending on your platform, use of the keyboard in the PC and in the phone using the touch as input</code>:</p>
+<p><img src="https://img.alicdn.com/tps/TB1kvJyOVXXXXbhaFXXXXXXXXXX-320-555.gif" alt="phone"></p>
+<h3 id="Data-persistence"><a href="#Data-persistence" class="headerlink" title="Data persistence"></a>Data persistence</h3><p><a href="https://www.youtube.com/watch?v=SzTNX7rg9Qg">video</a></p>
+<p>What’s the worst can happen when you’re playing stand-alone games? Power outage. The state is stored in the <code>localStorage</code> by subscribing to <code>store.subscribe</code>, which records exactly all the state. Web page refreshes, the program crashes, the phone is dead, just re-open the connection and you can continue playing.</p>
+<h3 id="Vuex-state-preview-Vue-DevTools-extension"><a href="#Vuex-state-preview-Vue-DevTools-extension" class="headerlink" title="Vuex state preview (Vue DevTools extension)"></a>Vuex state preview (<a href="https://github.com/vuejs/vue-devtools">Vue DevTools extension</a>)</h3><p><img src="http://7xkm8j.com1.z0.glb.clouddn.com/vuex.gif" alt="preview"></p>
+<p><a href="https://www.youtube.com/watch?v=iuoSSTqSAUE">video</a></p>
+<p>Vuex manages all the state that should be stored, which is a guarantee to be persisted as mentioned above.</p>
+<hr>
+<p>The Game framework is the use of <a href="https://github.com/vuejs/vue">Vue</a> + <a href="https://github.com/vuejs/vuex">Vuex</a>, together with <a href="https://facebook.github.io/immutable-js/">Immutable.js</a>.</p>
+<h2 id="1-What-is-Immutable-js"><a href="#1-What-is-Immutable-js" class="headerlink" title="1. What is Immutable.js?"></a>1. What is Immutable.js?</h2><p>Immutable is data that can not be changed once it is created. Any modification or addition to or deletion of an Immutable object returns a new Immutable object.</p>
+<h3 id="Acquaintance："><a href="#Acquaintance：" class="headerlink" title="Acquaintance："></a>Acquaintance：</h3><p>Let’s look at the following code:</p>
+<pre><code class="lang-JavaScript">function keyLog(touchFn) {
+  let data = { key: &#39;value&#39; };
+  f(data);
+  console.log(data.key); // Guess what will be printed?
+}
+</code></pre>
+<p>If we do not look at <code>f</code>, and do not know what it did to <code>data</code>, we can not confirm what will be printed. But if <code>data</code> is <em>Immutable</em>, you can be sure that <code>data</code> haven’t changed and <code>value</code> is printed:</p>
+<pre><code class="lang-JavaScript">function keyLog(touchFn) {
+  let data = Immutable.Map({ key: &#39;value&#39; });
+  f(data);
+  console.log(data.get(&#39;key&#39;));  // value
+}
+</code></pre>
+<p>JavaScript uses a reference assignment, meaning that the new object simply refers to the original object, changing the new will also affect the old:</p>
+<pre><code class="lang-JavaScript">foo = {a: 1};  bar = foo;  bar.a = 2;
+foo.a // 2
+</code></pre>
+<p>Although this can save memory, when the application is complex, it can result in the state not being controllable, posing a big risk. The advantages of saving memory, in this case, become more harm than good.</p>
+<p>With Immutable.js the same doesn’t happen:</p>
+<pre><code class="lang-JavaScript">foo = Immutable.Map({ a: 1 });  bar = foo.set(&#39;a&#39;, 2);
+foo.get(&#39;a&#39;) // 1
+</code></pre>
+<h3 id="About-“-”："><a href="#About-“-”：" class="headerlink" title="About “===”："></a>About “===”：</h3><p>We know that <code>===</code> operator for the <code>Object</code> and <code>Array</code> compares the reference to the address of the object rather than its “value comparison”, such as:</p>
+<pre><code class="lang-JavaScript">{a:1, b:2, c:3} === {a:1, b:2, c:3}; // false
+[1, 2, [3, 4]] === [1, 2, [3, 4]]; // false
+</code></pre>
+<p>To achieve the above we could only <code>deepCopy</code> and <code>deepCompare</code> to traverse the objects, but this is not only cumbersome it also harms performance.</p>
+<p>Let’s check <code>Immutable.js</code> approach!</p>
+<pre><code class="lang-JavaScript">map1 = Immutable.Map({a:1, b:2, c:3});
+map2 = Immutable.Map({a:1, b:2, c:3});
+Immutable.is(map1, map2); // true
+
+// List1 = Immutable.List([1, 2, Immutable.List[3, 4]]);
+List1 = Immutable.fromJS([1, 2, [3, 4]]);
+List2 = Immutable.fromJS([1, 2, [3, 4]]);
+Immutable.is(List1, List2); // true
+</code></pre>
+<p>Immutable learning materials:</p>
+<ul>
+<li><a href="http://facebook.github.io/immutable-js/">Immutable.js</a></li>
+</ul>
+<h2 id="2-Web-Audio-Api"><a href="#2-Web-Audio-Api" class="headerlink" title="2. Web Audio Api"></a>2. Web Audio Api</h2><p>There are many different sound effects in the game, but in fact we keep only a reference to a sound file: <a href="https://github.com/binaryify/vue-tetris/blob/master/build/music.mp3">/build/music.mp3</a>. With the help of <code>Web Audio Api</code>, you can play audio in millisecond precision, with a high frequency, which is not possible with the <code>&lt;audio&gt;</code> tag. Press the arrow keys to move the box while the game is in progress, you can hear high-frequency sound.</p>
+<p><img src="https://img.alicdn.com/tps/TB1fYgzNXXXXXXnXpXXXXXXXXXX-633-358.png" alt="Web audio advanced"></p>
+<p><code>WAA</code> is a new set of relatively independent interface system, the audio file has a higher processing power and more professional built-in audio effects, is the W3C recommended interface, can deal with professional “sound speed, volume, environment, sound visualization, High-frequency, sound to “ and other needs. The following figure describes the use of WAA process.</p>
+<p><img src="https://img.alicdn.com/tps/TB1nBf1NXXXXXagapXXXXXXXXXX-520-371.png" alt="Process"></p>
+<p>Where <code>Source</code> represents an audio source, <code>Destination</code> represents the final output. Multiple Sources compose the Destination.<br>Source Code:<a href="https://github.com/binaryify/vue-tetris/blob/master/src/unit/music.js">/src/unit/music.js</a>. To achieve ajax loading mp3, and to WAA, control the playback process.</p>
+<p><code>WAA</code> is supported in the latest 2 versions of each browser(<a href="http://caniuse.com/#search=webaudio">CanIUse</a>)</p>
+<p><img src="https://img.alicdn.com/tps/TB15z4VOVXXXXahaXXXXXXXXXXX-679-133.png" alt="browser compatibility"></p>
+<p>IE and Android lack support though.</p>
+<p>Web Audio Api learning materials:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web audio concepts and usage| MDN</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">Getting Started with Web Audio API</a></li>
+</ul>
+<hr>
+<h2 id="3-Game-on-the-experience-of-optimization"><a href="#3-Game-on-the-experience-of-optimization" class="headerlink" title="3. Game on the experience of optimization"></a>3. Game on the experience of optimization</h2><ul>
+<li>Experience:<ul>
+<li>Press the arrow keys to move vertically and horizontally. The trigger frequency is different, the game can define the trigger frequency, instead of the original event frequency, the source code:<a href="https://github.com/binaryify/vue-tetris/blob/master/src/unit/event.js">/src/unit/event.js</a> ;</li>
+<li>Left and right to move the delay can drop the speed, but when moving in the wall smaller delay; in the speed of 6 through the delay will ensure a complete horizontal movement in a row;</li>
+<li>The <code>touchstart</code> and <code>mousedown</code> events are also registered for the button for responsive games. When <code>touchstart</code> occurs, <code>mousedown</code> is not triggered, and when <code>mousedown</code> occurs, the <code>mouseup</code> simulator <code>mouseup</code> will also be listened to as <code>mouseup</code>, since the mouse-removed event element can not fire. Source Code:<a href="https://github.com/binaryify/vue-tetris/blob/master/src/components/keyboard/index.js">/src/components/keyboard/index.js</a>;</li>
+<li>The <code>visibilitychange</code> event, when the page is hidden\switch, the game will not proceed, switch back and it will continue, the <code>focus</code> state has also been written into the Redux. So when playing with the phone and the phone has a <code>call</code>, the progress of the game will be saved; PC open the game do not hear any other gameover, which is a bit like <code>ios</code> application switch;</li>
+<li>In the game <code>any</code> time you refresh the page, (such as the closing the tab or the end of the game) can restore the current state;</li>
+<li>The only pictures used in the game are <img src="https://img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png" alt="image">, all the rest is CSS;</li>
+<li>Game compatible with Chrome, Firefox, IE9 +, Edge, etc .;</li>
+</ul>
+</li>
+<li>Rules：<ul>
+<li>You can specify the initial board (ten levels) and speed (six levels) before the start of the game;</li>
+<li>100 points for 1 line, 300 points for 2 lines, 700 points for 3 lines, 1500 points for 4 lines;</li>
+<li>The drop speed of the box increases with the number of rows eliminated (one level for every 20 lines);</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-Experience-in-Development"><a href="#4-Experience-in-Development" class="headerlink" title="4. Experience in Development"></a>4. Experience in Development</h2><p>The Vue version and the React version of the core code are essentially the same, but there are a few problems when writing components, such as:</p>
+<ol>
+<li><p>React version store uses the immutable data structure, the store on the vuex if you use the immutable structure, not use to monitor data changes, so all the data in the store to use the common data, in the place where need these data provided by immutable fromJS conversion, where need common data is converted to common data, through the immutable toJS in the process of actual refactoring, I try to stay away from the core game logic, actually I didn’t understand the game implementation logic is in the reconstruction of the complete, just ensure the consistency of input and output method, just be patience</p>
+</li>
+<li><p>How to rewrite the React components into the Vue, my train of thought is to put the components as a function, ensure that an input (props) can get a certain output (view), and then do the same with different methods is also, React setState would trigger the render method, so can be defined in the methods from the render method to manually trigger the render method after the state change</p>
+</li>
+<li><p>Life cycle, in simple terms, the React of corresponding Vue componentWillMount beforeMount, React componentDidMount corresponding Vue mounted, React to optimize the performance of shouldComponentUpdate in Vue does not need, does not need manual optimization is one of the reason that I like the Vue </p>
+</li>
+<li><p>Vue does not have the React component of componentWillReceiveProps’ life cycle, and my solution is to use watch to work with deep: true to listen for changes in props such as:</p>
+<pre><code class="lang-js">watch: {
+ $props: {
+   deep: true,
+   handler(nextProps) {
+     //xxx
+   }
+ }
+}
+</code></pre>
+</li>
+<li><p>Usx jsx and ‘render’ functions when necessary, yes, Vue support jsx, in this project, matrix component logic is more complex, the use of template template to render components has been inappropriate, React each setState will trigger ‘render’ method, so we can customize the ‘render’ method in the methods customizing the ‘render’ method after the state changes, but this method will become cumbersome for components with complex logic, and my solution is through the Vue jsx conversion Plugin <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx">babel-plugin-transform-vue-jsx</a> to use the jsx syntax to render the page, when the props or state changes automatically trigger ‘render’ method, the other to note that the Vue jsx and React jsx write a little difference , the template syntax will be invalidated when the ‘render’ method exists. The ‘render’ function is a useful utility in developing a file like a <a href="https://github.com/diegomura/react-log">React-log</a> that does not need to render html only need to execute some methods. , Because this time does not need to render dom, and if the ‘render’ function, simply in the ‘render’ function in the return False on the line, such as: <a href="https://github.com/diegomura/react-log/blob/b1bb695a6997cd1be399170186cf6ff1e27393d7/src/Log.js#L33">React-log</a></p>
+</li>
+</ol>
+<p><a href="http://localhost:8080">http://localhost:8080</a></p>
+<h2 id="5、Architectural-differences"><a href="#5、Architectural-differences" class="headerlink" title="5、Architectural differences"></a>5、Architectural differences</h2><p>Redux of the state of the data flow is through the store ‘mapStateToProps’ into props and then through the ‘connect’ function into the root component, the root component put these props into different components, when the state of the store, the root component will render again, update the props on the subcomponents, child components according to the new props render again</p>
+<p>And Vuex train of thought, on the other hand, any component can at any time through this. $store. State. XXX access to the data on the store, more freedom, from store example reads the state of the simplest method is to return to a state in computational attributes:</p>
+<pre><code class="lang-js">computed: {
+    keyboard () {
+      return this.store.state.keyboard
+    }
+  }
+</code></pre>
+<p>Call ‘store.commit’ submit payload to modify the data store or dispatch submit mutation indirectly modify the data on the store, commit and dispatch the difference between the commit for synchronous modifying state, dispatch for asynchronous modifying state, asynchronous completion need to invoke the commit, generally simple demand only need to commit a payload, as long as the data on the store changed, component automatically render again</p>
+<h2 id="6-Development"><a href="#6-Development" class="headerlink" title="6. Development"></a>6. Development</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><pre><code>npm install
+</code></pre><h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><pre><code>npm run dev
+</code></pre><p>The browser will go to <a href="http://localhost:8080">http://localhost:8080</a></p>
+<h3 id="multi-language"><a href="#multi-language" class="headerlink" title="multi-language"></a>multi-language</h3><p>In the <a href="https://github.com/Binaryify/vue-tetris/blob/master/src/i18n.json">i18n.json</a>is the configuration for the multi-language environment. You can change the language by passing the url parameter <code>lan</code> like this: <code>https://Binaryify.github.io/vue-tetris/?lan=en</code></p>
+<p><code>http://binaryify.github.io/vue-tetris/?lan=zh</code></p>
+<h3 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h3><pre><code>npm run build
+</code></pre><p>Will build the application in the ‘dist’ folder.</p>

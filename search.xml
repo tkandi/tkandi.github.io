@@ -9209,12 +9209,6 @@ int main() {
   
     
     <entry>
-      <title><![CDATA[Gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[About]]></title>
       <url>/about/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -9227,16 +9221,17 @@ int main() {
     </entry>
     
     <entry>
-      <title><![CDATA[Game]]></title>
-      <url>/game/index.html</url>
-      <content type="html"><![CDATA[<p><a href="/game/2048/index.html" target="_blank" style="text-decoration:none"> <font size="18px" color="#776e65"> 2048 </font> </a></p>
-]]></content>
+      <title><![CDATA[Gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[Tags]]></title>
-      <url>/tags/index.html</url>
-      <content type="html"></content>
+      <title><![CDATA[Game]]></title>
+      <url>/game/index.html</url>
+      <content type="html"><![CDATA[<p><a href="/game/2048/index.html" target="_blank" style="text-decoration:none"> <font size="18px" color="#776e65"> 2048 </font> </a></p>
+<p><a href="/game/tetris/index.html" target="_blank" style="text-decoration:none"> <font size="18px" color="#776e65"> tetris </font> </a></p>
+]]></content>
     </entry>
     
     <entry>
@@ -9248,6 +9243,12 @@ int main() {
     <entry>
       <title><![CDATA[Timeline]]></title>
       <url>/timeline/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     

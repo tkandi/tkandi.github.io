@@ -1,0 +1,134 @@
+<h3 id="English-introduction"><a href="#English-introduction" class="headerlink" title="English introduction"></a>English introduction</h3><p>Please view <a href="https://github.com/Binaryify/vue-tetris/blob/master/README-EN.md">README.md</a></p>
+<h2 id="用Vue、Vuex、Immutable做俄罗斯方块"><a href="#用Vue、Vuex、Immutable做俄罗斯方块" class="headerlink" title="用Vue、Vuex、Immutable做俄罗斯方块"></a>用Vue、Vuex、Immutable做俄罗斯方块</h2><hr>
+<p>本项目灵感来源于 React 版的<a href="https://github.com/chvin/react-tetris">俄罗斯方块</a>,由于对其实现原理较感兴趣,而且相比于 React 更喜欢 Vue, 于是把 React 版的重构为了 Vue 版的,大致思路是把组件当成一个个函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同方法也是做同样处理,对于 Redux 使用 Vuex 精简化</p>
+<p>戳：<a href="http://binaryify.github.io/vue-tetris/?lan=zh">http://binaryify.github.io/vue-tetris/?lan=zh</a> 玩一玩！</p>
+<hr>
+<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p><img src="https://img.alicdn.com/tps/TB1Ag7CNXXXXXaoXXXXXXXXXXXX-320-483.gif" alt="效果预览"></p>
+<p>正常速度的录制，体验流畅。</p>
+<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p><img src="https://img.alicdn.com/tps/TB1AdjZNXXXXXcCapXXXXXXXXXX-480-343.gif" alt="响应式"></p>
+<p>不仅指屏幕的自适应，而是<code>在PC使用键盘、在手机使用手指的响应式操作</code>：</p>
+<p><img src="https://img.alicdn.com/tps/TB1kvJyOVXXXXbhaFXXXXXXXXXX-320-555.gif" alt="手机"></p>
+<h3 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h3><p><a href="http://7xkm8j.com1.z0.glb.clouddn.com/persistence.mp4">视频</a></p>
+<p>玩单机游戏最怕什么？断电。通过订阅 <code>store.subscribe</code>，将state储存在localStorage，精确记录所有状态。网页关了刷新了、程序崩溃了、手机没电了，重新打开连接，都可以继续。</p>
+<h3 id="Vuex-状态预览（Vue-DevTools-extension）"><a href="#Vuex-状态预览（Vue-DevTools-extension）" class="headerlink" title="Vuex 状态预览（Vue DevTools extension）"></a>Vuex 状态预览（<a href="https://github.com/vuejs/vue-devtools">Vue DevTools extension</a>）</h3><p><img src="http://7xkm8j.com1.z0.glb.clouddn.com/vuex.gif" alt="preview"></p>
+<p><a href="http://7xkm8j.com1.z0.glb.clouddn.com/vuex.mp4">视频</a></p>
+<p>Vuex 设计管理了所有应存的状态，这是上面持久化的保证。</p>
+<hr>
+<p>游戏框架使用的是 <a href="https://github.com/vuejs/vue">Vue</a> + <a href="https://github.com/vuejs/vuex">Vuex</a>，其中再加入了 <a href="https://facebook.github.io/immutable-js/">Immutable.js</a>,确保性能和数据可靠性</p>
+<h2 id="1、什么是-Immutable？"><a href="#1、什么是-Immutable？" class="headerlink" title="1、什么是 Immutable？"></a>1、什么是 Immutable？</h2><p>Immutable 是一旦创建，就不能再被更改的数据。对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。</p>
+<h3 id="初识："><a href="#初识：" class="headerlink" title="初识："></a>初识：</h3><p>让我们看下面一段代码：</p>
+<pre><code class="lang-JavaScript">function keyLog(touchFn) {
+  let data = { key: &#39;value&#39; };
+  f(data);
+  console.log(data.key); // 猜猜会打印什么？
+}
+</code></pre>
+<p>不查看f，不知道它对 <code>data</code> 做了什么，无法确认会打印什么。但如果 <code>data</code> 是 Immutable，你可以确定打印的是 <code>value</code>：</p>
+<pre><code class="lang-JavaScript">function keyLog(touchFn) {
+  let data = Immutable.Map({ key: &#39;value&#39; });
+  f(data);
+  console.log(data.get(&#39;key&#39;));  // value
+}
+</code></pre>
+<p>JavaScript 中的<code>Object</code>与<code>Array</code>等使用的是引用赋值，新的对象简单的引用了原始对象，改变新也将影响旧的：</p>
+<pre><code class="lang-JavaScript">foo = {a: 1};  bar = foo;  bar.a = 2;
+foo.a // 2
+</code></pre>
+<p>虽然这样做可以节约内存，但当应用复杂后，造成了状态不可控，是很大的隐患，节约的内存优点变得得不偿失。</p>
+<p>Immutable则不一样，相应的：</p>
+<pre><code class="lang-JavaScript">foo = Immutable.Map({ a: 1 });  bar = foo.set(&#39;a&#39;, 2);
+foo.get(&#39;a&#39;) // 1
+</code></pre>
+<h3 id="关于-“-”："><a href="#关于-“-”：" class="headerlink" title="关于 “===”："></a>关于 “===”：</h3><p>我们知道对于<code>Object</code>与<code>Array</code>的<code>===</code>比较，是对引用地址的比较而不是“值比较”，如：</p>
+<pre><code class="lang-JavaScript">{a:1, b:2, c:3} === {a:1, b:2, c:3}; // false
+[1, 2, [3, 4]] === [1, 2, [3, 4]]; // false
+</code></pre>
+<p>对于上面只能采用 <code>deepCopy</code>、<code>deepCompare</code>来遍历比较，不仅麻烦且好性能。</p>
+<p>我们感受来一下<code>Immutable</code>的做法！</p>
+<pre><code class="lang-JavaScript">map1 = Immutable.Map({a:1, b:2, c:3});
+map2 = Immutable.Map({a:1, b:2, c:3});
+Immutable.is(map1, map2); // true
+
+// List1 = Immutable.List([1, 2, Immutable.List[3, 4]]);
+List1 = Immutable.fromJS([1, 2, [3, 4]]);
+List2 = Immutable.fromJS([1, 2, [3, 4]]);
+Immutable.is(List1, List2); // true
+</code></pre>
+<p>Immutable学习资料：</p>
+<ul>
+<li><a href="http://facebook.github.io/immutable-js/">Immutable.js</a></li>
+</ul>
+<h2 id="2、Web-Audio-Api"><a href="#2、Web-Audio-Api" class="headerlink" title="2、Web Audio Api"></a>2、Web Audio Api</h2><p>游戏里有很多不同的音效，而实际上只引用了一个音效文件：<a href="https://github.com/Binaryify/vue-tetris/blob/master/build/music.mp3">/build/music.mp3</a>。借助<code>Web Audio Api</code>能够以毫秒级精确、高频率的播放音效，这是<code>&lt;audio&gt;</code>标签所做不到的。在游戏进行中按住方向键移动方块，便可以听到高频率的音效。</p>
+<p><img src="https://img.alicdn.com/tps/TB1fYgzNXXXXXXnXpXXXXXXXXXX-633-358.png" alt="网页音效进阶"></p>
+<p><code>WAA</code> 是一套全新的相对独立的接口系统，对音频文件拥有更高的处理权限以及更专业的内置音频效果，是W3C的推荐接口，能专业处理“音速、音量、环境、音色可视化、高频、音向”等需求，下图介绍了WAA的使用流程。</p>
+<p><img src="https://img.alicdn.com/tps/TB1nBf1NXXXXXagapXXXXXXXXXX-520-371.png" alt="流程"></p>
+<p>其中Source代表一个音频源，Destination代表最终的输出，多个Source合成出了Destination。<br>源代码：<a href="https://github.com/Binaryify/vue-tetris/blob/master/src/unit/music.js">/src/unit/music.js</a> 实现了ajax加载mp3，并转为WAA，控制播放的过程。</p>
+<p><code>WAA</code> 在各个浏览器的最新2个版本下的支持情况（<a href="http://caniuse.com/#search=webaudio">CanIUse</a>）</p>
+<p><img src="https://img.alicdn.com/tps/TB15z4VOVXXXXahaXXXXXXXXXXX-679-133.png" alt="浏览器兼容"></p>
+<p>可以看到IE阵营与大部分安卓机不能使用，其他ok。</p>
+<p>Web Audio Api 学习资料：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API">Web API 接口| MDN</a></li>
+<li><a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">Getting Started with Web Audio API</a></li>
+</ul>
+<hr>
+<h2 id="3、游戏在体验上的优化"><a href="#3、游戏在体验上的优化" class="headerlink" title="3、游戏在体验上的优化"></a>3、游戏在体验上的优化</h2><ul>
+<li>技术：<ul>
+<li>按下方向键水平移动和竖直移动的触发频率是不同的，游戏可以定义触发频率，代替原生的事件频率，源代码：<a href="https://github.com/Binaryify/vue-tetris/blob/master/src/unit/event.js">/src/unit/event.js</a> ；</li>
+<li>左右移动可以 delay 掉落的速度，但在撞墙移动的时候 delay 的稍小；在速度为6级时 通过delay 会保证在一行内水平完整移动一次；</li>
+<li>对按钮同时注册<code>touchstart</code>和<code>mousedown</code>事件，以供响应式游戏。当<code>touchstart</code>发生时，不会触发<code>mousedown</code>，而当<code>mousedown</code>发生时，由于鼠标移开事件元素可以不触发<code>mouseup</code>，将同时监听<code>mouseout</code> 模拟 <code>mouseup</code>。源代码：<a href="https://github.com/Binaryify/vue-tetris/blob/master/src/components/keyboard/index.js">/src/components/keyboard/index.js</a>；</li>
+<li>监听了 <code>visibilitychange</code> 事件，当页面被隐藏\切换的时候，游戏将不会进行，切换回来将继续，这个<code>focus</code>状态也被写进了 Vuex 中。所以当用手机玩来<code>电话</code>时，游戏进度将保存；PC开着游戏干别的也不会听到gameover，这有点像 <code>ios</code> 应用的切换。</li>
+<li>在<code>任意</code>时刻刷新网页，（比如消除方块时、游戏结束时）也能还原当前状态；</li>
+<li>游戏中唯一用到的图片是<img src="https://img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png" alt="image">，其他都是CSS；</li>
+<li>游戏兼容 Chrome、Firefox、IE9+、Edge等；</li>
+</ul>
+</li>
+<li>玩法：<ul>
+<li>可以在游戏未开始时制定初始的棋盘（十个级别）和速度（六个级别）；</li>
+<li>一次消除1行得100分、2行得300分、3行得700分、4行得1500分；</li>
+<li>方块掉落速度会随着消除的行数增加（每20行增加一个级别）；</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4、开发中的经验梳理-以及如何把-React-项目重构为-Vue-版本"><a href="#4、开发中的经验梳理-以及如何把-React-项目重构为-Vue-版本" class="headerlink" title="4、开发中的经验梳理,以及如何把 React 项目重构为 Vue 版本"></a>4、开发中的经验梳理,以及如何把 React 项目重构为 Vue 版本</h2><p>Vue 版本和 React 版本核心代码基本相同,但在编写组件的时候遇到了几个问题,比如:</p>
+<ol>
+<li><p>React 版的 store  使用了 immutable 结构的数据,vuex 上的 store 如果使用了 immutable 结构,不利用监听数据变化,故把store 的数据全部使用了普通的数据,在需要这些数据的地方通过 immutable 提供的 <code>fromJS</code> 转换,在需要普通数据的地方再通过 immutable 的 <code>toJS</code> 转换成普通数据,在实际重构过程中,我尽量避开了核心游戏实现逻辑,实际上我是在没弄懂游戏实现逻辑的情况下完成重构的,只是保证了方法的输入和输出的一致性,要做的只是耐心  </p>
+</li>
+<li><p>如何把 React 组件改写成 Vue 的,我的思路是把组件当成函数,保证一个输入(props)能得到一个确定的输出(view),然后对不同方法也是做同样处理, React 的 setState 会触发 render 方法,所以可以在 methods 自定义 render 方法再在 state 变化后手动触发 render 方法</p>
+</li>
+<li><p>生命周期,简单来说, React 的 <code>componentWillMount</code> 对应 Vue 的 <code>beforeMount</code>, React 的 <code>componentDidMount</code> 对应 Vue 的 <code>mounted</code>,React 的用来优化性能的 <code>shouldComponentUpdate</code> 在 Vue 里并不需要,不需要手动优化这也是我喜欢 Vue 的一点</p>
+</li>
+<li><p>Vue 没有 React 的<code>componentWillReceiveProps</code> 的生命周期,我的解决方法是使用 watch 配合 <code>deep:true</code> 来监听 props 的变化,如:</p>
+<pre><code class="lang-js">watch: {
+ $props: {
+   deep: true,
+   handler(nextProps) {
+     //xxx
+   }
+ }
+}
+</code></pre>
+</li>
+<li><p>在必要时候使用 jsx 和 ‘render’ 函数,是的, vue 支持 jsx,在这个项目中<code>matrix 组件</code> 的功能逻辑较复杂,使用 <code>template</code> 模版来渲染组件已经不合适了, React 每次 setState 会触发 ‘render’ 方法,所以我们可以在 methods自定义 ‘render’ 方法再在 state 变化后手动触发 ‘render’ 方法,但是这个方法对有复杂逻辑的组件来说会变得很繁琐,我的解决方法是通过 Vue 的 jsx 转换插件<a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx">babel-plugin-transform-vue-jsx</a>来使用 jsx 语法对页面进行渲染,当 props 或 state 变化了自动触发 ‘render’ 方法,另外要注意的是 vue 的 jsx 和 React 的 jsx 书写上有一点的差异, 当 ‘render’ 方法存在时,template 语法会失效. ‘render’ 函数一个比较实用的用处是在开发类似 React-log 之类的不需要渲染 html 只需要执行一些方法的组件时 template 会显得很多余,因为这时候并不需要渲染 dom 了,如果用了 ‘render’ 函数,简单的在 ‘render’ 函数里 return false 就行,如: <a href="https://github.com/diegomura/react-log/blob/b1bb695a6997cd1be399170186cf6ff1e27393d7/src/Log.js#L33">react-log</a></p>
+</li>
+</ol>
+<h2 id="5、架构差异"><a href="#5、架构差异" class="headerlink" title="5、架构差异"></a>5、架构差异</h2><p>Redux 的数据流向是通过 <code>mapStateToProps</code> 把 store 的状态转化为 props 然后通过<code>connect</code> 函数注入到 根组件,根组件再把这些 props 传入不同组件,当 store 的状态变化,根组件会重新 render, 更新子组件上的 props,子组件再 根据新 props重新 render<br>引用知乎一个答友的回答<a href="https://www.zhihu.com/question/47686258">https://www.zhihu.com/question/47686258</a>来说就是:</p>
+<blockquote>
+<p>单例store的数据在react中可以通过view组件的属性（props）不断由父模块<strong>“单向”</strong>传递给子模块，形成一个树状分流结构。如果我们把redux比作整个应用的“心肺” （redux的flux功能像心脏，reducer功能像肺部毛细血管），那么这个过程可以比作心脏（store）将氧分子（数据）通过动脉毛细血管（props）送到各个器官组织（view组件）末端的view组件，又可以通过flux机制，将携带交互意图信息的action反馈给store。这个过程有点像将携带代谢产物的“红细胞”（action）通过静脉毛细血管又泵回心脏（store）action流回到store以后，action以参数的形式又被分流到各个具体的reducer组件中，这些reducer同样构成一个树状的hierarchy。这个过程像静脉血中的红细胞（action）被运输到肺部毛细血管（reducer组件）接收到action后，各个child reducer以返回值的形式，将最新的state返回给parent reducer，最终确保整个单例store的所有数据是最新的。这个过程可以比作肺部毛细血管的血液充氧后，又被重新泵回了心脏</p>
+</blockquote>
+<p>而 vuex 的思路则不同,任何组件都随时可以通过 this.$store.state.xxx 获取 store 上的数据,更自由,从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态：</p>
+<pre><code class="lang-js">computed: {
+    keyboard () {
+      return this.store.state.keyboard
+    }
+  }
+</code></pre>
+<p>调用 store.commit 提交 payload修改数据 或者 store.dispatch 提交 mutation 间接修改 store 上的数据, commit 和 dispatch 的区别在于 commit 用于同步修改状态, dispatch 用于异步修改状态,异步完成需要再调用 commit,一般简单的需求只需要 commit 一个 payload 就行,只要 store 上的数据变了,组件都会自动重新渲染</p>
+<h2 id="6、开发"><a href="#6、开发" class="headerlink" title="6、开发"></a>6、开发</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm install
+</code></pre><h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><pre><code>npm run dev
+</code></pre><p>浏览自动打开 <a href="http://localhost:8080">http://localhost:8080</a></p>
+<h3 id="多语言"><a href="#多语言" class="headerlink" title="多语言"></a>多语言</h3><p>在 <a href="https://github.com/Binaryify/vue-tetris/blob/master/src/i18n.json">i18n.json</a> 配置多语言环境，使用”lan”参数匹配语言如：<code>https://Binaryify.github.io/vue-tetris/?lan=en</code></p>
+<p><code>http://binaryify.github.io/vue-tetris/?lan=zh</code></p>
+<h3 id="打包编译"><a href="#打包编译" class="headerlink" title="打包编译"></a>打包编译</h3><pre><code>npm run build
+</code></pre><p>在 <code>dist</code> 文件夹下生成结果。</p>
