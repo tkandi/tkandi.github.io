@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tkandi.github.io/"/>
-  <updated>2017-11-07T10:40:44.097Z</updated>
+  <updated>2018-03-02T10:31:09.264Z</updated>
   <id>http://tkandi.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>集合选数最值一类问题</title>
+    <link href="http://tkandi.github.io/2018/03/02/%E9%9B%86%E5%90%88%E9%80%89%E6%95%B0%E6%9C%80%E5%80%BC%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98/"/>
+    <id>http://tkandi.github.io/2018/03/02/集合选数最值一类问题/</id>
+    <published>2018-03-02T03:30:00.000Z</published>
+    <updated>2018-03-02T10:31:09.264Z</updated>
+    
+    <content type="html"><![CDATA[<p>一共有两种类型，我分别介绍。</p><h2 id="类型一"><a href="#类型一" class="headerlink" title="类型一"></a>类型一</h2><p>先来看一道简单的题目：</p><blockquote><p><a href="http://poj.org/problem?id=2442" target="_blank" rel="external">POJ2442 Sequence</a></p><p>给你$m$个序列，每个序列有$n$个非负整数，你现在要在每个序列选一个数，这一共有$n^m$种方案，一种方案的值定义为所选的数的和，要你输出值最小的$n$种方案的和。<br>数据范围： $0 \lt m \le 100$, $0 \lt n \le 2000$。</p></blockquote><p>先考虑$m = 2$的情况，一共有$n ^ 2$种方案，设两个序列为$a, b$，假设我们已经把它们排好序了，即$a_i \le a_{i+1} \  (1 \le i \lt n)$, $b_i \le b_{i+1} \  (1 \le i \lt n)$。方案$f(i, j)$的值为$a_i + b_j$。$f$有以下性质：$f(i, j) \le f(i, k) \  (j \lt k)$，$f(i, j) \  (1 \lt j \le n)$如果是最后的答案，那么$f(i, j - 1)$肯定也是答案。我们只需要维护一个优先队列，初始时将$f(i, 1)$加入优先队列，从优先队列中第$k$次取出的$f(i, j)$即为第$k$小的方案，每次取出后，若$j \lt n$，把$f(i, j + 1)$加入优先队列。时间复杂度为$O(nlog_2{m})$<br>至此，我们有了$m = 2$的合并算法，当$m \gt 2$时，我们只需要将$m$个序列进行$m - 1$次合并。得到的即为答案。总的时间复杂度为$O(mnlog_{2}m)$，可以通过此题。</p><p>我们考虑与此题类似的一个问题，给定$n$个多重集合$c_i$，第$i$个集合的大小为$s_i$，要在每个集合中选一个数，一种方案的值定义为所选的数的和（或积），求第$k$大（或小）的方案的值。</p><p>对于此问题上面这个做法还不够优秀。</p><p>以下介绍第一种更为优秀的做法。</p><p>以求第$k$大为例。<br>先把集合内元素排序，再以集合的最大值与次大值的差作为关键字对集合进行排序，即对于集合$i$满足$s_{i, j} \le s_{i, j + 1}, \  s_{i, 1} - s_{i, 2} \le s_{i + 1, 1} - s_{i + 1, 2}$ (如果某个集合只有一个元素，那么这个集合只有一种选法，就可以不用考虑了)。</p><p>把上面$f$的维数扩展到$n$维，$f(p_1, p_2, \cdots , p_n)$代表一个方案，第$i$个集合选了第$p_i$大的数。每个集合默认选择最大的数，这种选择作为初始方案，再进行逐个集合更改所选的数。我们只需要记录当前待选择的集合的编号$i$，当前集合所选的数第$j$大的数，以及当前方案的值。之前的选择$p_1, p_2, \cdots p_{i - 1}$，完全可以丢弃，$p_{i + 1}, p_{i + 2}, \cdots p_n$默认都是选择最大的，也不用记录，所以$f$只有三维$(i, j, sum)$。<br>对$f(i, j, sum)$的后继进行定义：</p><blockquote><p>若$j \lt c_i$，$f(i, j + 1, sum - s_{i, j} + s_{i, j + 1})$是它的后继；<br>若$i \lt n$，$f(i + 1, 2, sum - s_{i + 1, 1} + s_{i + 1, 2})$是它的后继；<br>若$j = 2 \  \&amp;\&amp; \  i \lt n$，$f(i + 1, 2, sum + sum{i, 1} - s_{i, 2} - s_{i + 1, 1} + s_{i + 1, 2})$是它的后继；</p></blockquote><p>相应的，我们定义前驱。</p><p>我们把每种方案看成一个节点，它与它的后继之间的边为后继边，它与它的前驱之间的边为前驱边。</p><p>存在以下性质：</p><blockquote><p>$f(i, j, sum)$不大于它的所以后继，不小于它的所以前驱。<br>因为前面我们对集合进行了排序，<br>满足$s_{i, j} \le s_{i, j + 1}$，所以第一种和第二种后继（如果存在）存在这种性质。<br>满足$s_{i, 1} - s_{i, 2} \le s_{i + 1, 1} - s_{i + 1, 2}$，所以第三种后继（如果存在）存在这种性质。</p><p>$f(i, j, sum)$可以有多个后继，但只有唯一的前驱。<br>因为我们是逐位更改的，当前集合和所选的数的不同，这两种方案通过后继边所能达到的方案不会有交。</p><p>给一种合法的方案通过前驱边最终一定能到达初始方案。<br>即从最初方案通过后继边可以到达每种合法方案。<br>这很显然。</p></blockquote><p>那么这就是一棵树。如果一种方案成为答案，那么它的前驱肯定也是答案。那么我们可以维护一个优先队列，存当前可能成为答案的方案，第$k$个答案即为优先队列第$k$次的最大值，一种方案出队后把它的所有后继加入优先队列。</p><p>事实上，这种结构只要是一个$DAG$，就可以用优先队列维护了，只不过可能要去重。</p><p>这个算法的时间复杂度为$O(nlog_{2}n + \sum_i^n{c_ilog_{2}c_i}+ klog_{2}mk)$，其中$m$为每种方案的平均后继个数。由于$m$是常数，可以忽略，那么时间复杂度就是$O(nlog_{2}n + \sum_i^n{c_ilog_{2}c_i}+ klog_{2}k)$。这个算法是相当优秀的。</p><p>模板题<a href="https://loj.ac/problem/6254" target="_blank" rel="external">LibreOj #6254. 最优卡组</a></p><h2 id="类型二"><a href="#类型二" class="headerlink" title="类型二"></a>类型二</h2><p>假设我们始终在一个内选数，即给你一个有$n$个元素的多重集合$s$，选$m$个不同的数定义为一种方案，求第$k$大（或小）的方案的值。</p><p>利用上面的算法的思想，$f(p_1, p_2, \cdots , p_m) \  (1 \le p_1 \lt p_2 \lt \cdots  \lt p_m)$为一种方案。</p><p>定义后继：如果$f(p_1, p_2, \cdots , p_i + 1, \cdots , p_m)$合法，那么它为$f(p_1, p_2, \cdots , p_m)$的后继。<br>类似的定义前驱。</p><p>但是这是一个DAG，如果这样直接用优先队列做，需要去重。<br>我们再次利用逐位更改的思想，多加一维$i$，表示$p_i, p_{i + 1}, \cdots , p_m$不会更改。<br>$f(i, p_1, p_2, \cdots , p_i, \cdots , p_m)$的后继有：</p><blockquote><p>如果$f(i, p_1, p_2, \cdots , p_i + 1, \cdots , p_m)$合法，那么它为$f(i, p_1, p_2, \cdots , p_m)$的后继。<br>如果$f(j, p_1, p_2, \cdots , p_j + 1, \cdots , p_m) \  (1 \le j \lt i)$，那么它为$f(i, p_1, p_2, \cdots , p_m)$的后继。</p></blockquote><p>显然它也有上面的三个性质。<br>那么这就是一颗树了，可以直接用优先队列做，不需要去重了。</p><blockquote><p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=421" target="_blank" rel="external">Sgu 421. k-th Product</a></p><p>给出$n$个整数$a_1, a_2, \cdots , a_n$，问从中选$m$个数乘积第$k$大是多少。<br>数据范围：$1 \le n,k \le 10000$, $1 \le m \le13$, $k \le C^n_m$, $-10^6 \le a_i \le10^6$。</p></blockquote><p>假如求的是数和的第$k$大，或正整数的乘积第$k$大是多少，那么可以直接用上面的那个算法。<br>但是所选的负数的个数或影响乘积的正负，所以我们枚举$m$中选的负数的个数。如果负数个数为偶数，这类方案的乘积非负，选择求绝对值前$k$大的乘积。反之，这类方案的乘积非正，选择求绝对值前$k$小的乘积。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://poj.org/problem?id=2442" target="_blank" rel="external">POJ2442 Sequence</a><br><a href="https://buaacoding.cn/contest-ng/index.html#/188/problems" target="_blank" rel="external">第十三届北航程序设计竞赛预赛</a><br><a href="http://blog.csdn.net/skywalkert/article/details/78848170#m-最优卡组" target="_blank" rel="external">第十三届北航程序设计竞赛预赛题解</a><br><a href="https://loj.ac/problem/6254" target="_blank" rel="external">LibreOj #6254. 最优卡组</a><br><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=421" target="_blank" rel="external">Sgu 421. k-th Product</a><br><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1425" target="_blank" rel="external">bzoj 1425: SGU 421 k-th Product</a><br><a href="https://blog.sengxian.com/solutions/bzoj-1425" target="_blank" rel="external">Sengxian’s Blog</a><br><a href="https://wenku.baidu.com/view/1283f388d0d233d4b14e6912" target="_blank" rel="external">ZJOI2010讲课</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一共有两种类型，我分别介绍。&lt;/p&gt;
+&lt;h2 id=&quot;类型一&quot;&gt;&lt;a href=&quot;#类型一&quot; class=&quot;headerlink&quot; title=&quot;类型一&quot;&gt;&lt;/a&gt;类型一&lt;/h2&gt;&lt;p&gt;先来看一道简单的题目：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;htt
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://tkandi.github.io/categories/algorithm/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>AtCoder Beginner Contest 077</title>
