@@ -244,7 +244,7 @@
 
     
         <meta property="article:published_time" content="Fri Mar 02 2018 11:30:00 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Mar 06 2018 18:38:50 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Mar 06 2018 18:56:51 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -271,7 +271,7 @@
     "mainEntityOfPage": "http://tkandi.github.io/2018/03/02/集合选数最值一类问题/index.html",
     "headline": "集合选数最值一类问题",
     "datePublished": "Fri Mar 02 2018 11:30:00 GMT+0800",
-    "dateModified": "Tue Mar 06 2018 18:38:50 GMT+0800",
+    "dateModified": "Tue Mar 06 2018 18:56:51 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "tkandi",
@@ -519,18 +519,18 @@
 <p>我们把每种方案看成一个节点，它与它的后继之间的边为后继边，它与它的前驱之间的边为前驱边。</p>
 <p>存在以下性质：</p>
 <blockquote>
-<p>$f(i, j, sum)$不大于它的所以后继，不小于它的所以前驱。<br>因为前面我们对集合进行了排序，<br>满足$s_{i, j} \le s_{i, j + 1}$，所以第一种和第二种后继（如果存在）存在这种性质。<br>满足$s_{i, 1} - s_{i, 2} \le s_{i + 1, 1} - s_{i + 1, 2}$，所以第三种后继（如果存在）存在这种性质。</p>
+<p>$f(i, j, sum)$不小于它的后继，不大于它的前驱。<br>因为前面我们对集合进行了排序，<br>满足$s_{i, j} \ge s_{i, j + 1}$，所以第一种和第二种后继（如果存在）存在这种性质。<br>满足$s_{i, 1} - s_{i, 2} \le s_{i + 1, 1} - s_{i + 1, 2}$，所以第三种后继（如果存在）存在这种性质。</p>
 <p>$f(i, j, sum)$可以有多个后继，但只有唯一的前驱。<br>因为我们是逐位更改的，当前集合和所选的数的不同，这两种方案通过后继边所能达到的方案不会有交。</p>
-<p>给一种合法的方案通过前驱边最终一定能到达初始方案。<br>即从最初方案通过后继边可以到达每种合法方案。<br>这很显然。</p>
+<p>对于任意合法的方案最终一定能通过前驱边到达初始方案。<br>即从最初方案通过后继边可以到达任意合法方案。<br>这很显然。</p>
 </blockquote>
 <p>那么这就是一棵树。如果一种方案成为答案，那么它的前驱肯定也是答案。那么我们可以维护一个优先队列，存当前可能成为答案的方案，第$k$个答案即为优先队列第$k$次的最大值，一种方案出队后把它的所有后继加入优先队列。</p>
 <p>事实上，这种结构只要是一个$DAG$，就可以用优先队列维护了，只不过可能要去重。</p>
 <p>这个算法的时间复杂度为$O(nlog_{2}n + \sum_i^n{c_ilog_{2}c_i}+ klog_{2}mk)$，其中$m$为每种方案的平均后继个数。由于$m$是常数，可以忽略，那么时间复杂度就是$O(nlog_{2}n + \sum_i^n{c_ilog_{2}c_i}+ klog_{2}k)$。这个算法是相当优秀的。</p>
 <p>模板题<a href="https://loj.ac/problem/6254" target="_blank" rel="external">LibreOj #6254. 最优卡组</a></p>
-<h2 id="类型二"><a href="#类型二" class="headerlink" title="类型二"></a>类型二</h2><p>假设我们始终在一个内选数，即给你一个有$n$个元素的多重集合$s$，选$m$个不同的数定义为一种方案，求第$k$大（或小）的方案的值。</p>
-<p>利用上面的算法的思想，$f(p_1, p_2, \cdots , p_m) \  (1 \le p_1 \lt p_2 \lt \cdots  \lt p_m)$为一种方案。</p>
+<h2 id="类型二"><a href="#类型二" class="headerlink" title="类型二"></a>类型二</h2><p>假设我们始终在一个集合内选数，即给你一个有$n$个元素的多重集合$s$，选$m$个不同的数定义为一种方案，求第$k$大（或小）的方案的值。</p>
+<p>利用上面的算法的思想，$f(p_1, p_2, \cdots , p_m) \  (1 \le p_1 \lt p_2 \lt \cdots  \lt p_m \le n)$为一种方案。</p>
 <p>定义后继：如果$f(p_1, p_2, \cdots , p_i + 1, \cdots , p_m)$合法，那么它为$f(p_1, p_2, \cdots , p_m)$的后继。<br>类似的定义前驱。</p>
-<p>但是这是一个DAG，如果这样直接用优先队列做，需要去重。<br>我们再次利用逐位更改的思想，多加一维$i$，表示$p_i, p_{i + 1}, \cdots , p_m$不会更改。<br>$f(i, p_1, p_2, \cdots , p_i, \cdots , p_m)$的后继有：</p>
+<p>但是这是一个DAG，如果这样直接用优先队列做，需要去重。<br>我们再次利用逐位更改的思想，多加一维$i$，表示$p_{i + 1}, \cdots , p_m$不会更改。<br>$f(i, p_1, p_2, \cdots , p_i, \cdots , p_m)$的后继有：</p>
 <blockquote>
 <p>如果$f(i, p_1, p_2, \cdots , p_i + 1, \cdots , p_m)$合法，那么它为$f(i, p_1, p_2, \cdots , p_m)$的后继。<br>如果$f(j, p_1, p_2, \cdots , p_j + 1, \cdots , p_m) \  (1 \le j \lt i)$，那么它为$f(i, p_1, p_2, \cdots , p_m)$的后继。</p>
 </blockquote>
